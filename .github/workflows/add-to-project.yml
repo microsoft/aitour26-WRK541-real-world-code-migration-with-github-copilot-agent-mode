@@ -1,0 +1,28 @@
+name: Add new issues to AI Tour GH Project
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: ${{ secrets.GH_PROJECT_URL }}
+          github-token: ${{ secrets.ADD_TO_PROJECT }}
+  label_issues:
+    needs: add-to-project
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - run: gh issue edit "$NUMBER" --add-label "$LABELS"
+        env:
+          GH_TOKEN: ${{ secrets.ADD_TO_PROJECT }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          LABELS: Innovate
