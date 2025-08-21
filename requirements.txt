@@ -1,2 +1,5 @@
 # Documentation
 mkdocs-material
+-r docs/requirements.txt
+ruff
+black

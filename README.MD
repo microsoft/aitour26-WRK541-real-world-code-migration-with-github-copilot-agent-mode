@@ -1,79 +1,46 @@
-# Welcome AI Tour 26 Creators!
-
-Thanks for creating content for AI Tour 26.
-
-One of our opportunities from FY25 was make a more consistent experience for attendees.  Following this template, and keeping users in these repos, will help us achieve this opportunity for this year's AI Tour.
-
-Steps:
-
-## Docs using MKDocs
-If you are interested in using mkdocs, this repo is configured for it.
-1. update the `mkdocs.yml` file to reference your session. Look particularly for the `site_name`, `site_author`, and `repo_name` tags.
-1. Subfolders in the docs folder will show up as tabs in the navigation bar.
-
-If you want to disable mkdocs:
-1. Delete the mkdocs.yml file. 
-1. Delete the references to it in [docs/README.md](./docs/README.md)
-1. Delete the docs/assets folder and its contents.
-
-## Other folders
-Note the data, docs, src, lab, session-delivery-resources folders. 
-1. Remove folders that you dont need.
-1. Please keep and use the folders that you do need.  e.g. put your data in the data folder, and put your docs in the docs folder.
-
-## Update Readme
-1. Fill out the content below in this file, below the banner graphic.
-
-## Update Repo Info
-
-1. Note the data, docs, src, lab, session-delivery-resources folders. 
-
-    1. Remove folders that you dont need, but please keep and use the folders that you do need.  e.g. put your data in the data folder, and put your docs in the docs folder.
-
-1. Fill out the content below in this file, below the banner graphic.
-
-1. Update the Repo Info for this repo 
-    1. Click the gear icon⚙️ in the upper right.
-    1. Set a good description of this repo.
-    1. Add the technologies that you're using in this session.  E.g. the same items that are in the Technologies Used section below.
-
-1. Please embed links to Learn with your campaign codes!
-
-## Questions?
-Send them to Mike Kinsman, Erik Weis, and cc Anthony Bartolo.
-
-## Last step
-Delete this line and everything above it!
-
-
 <p align="center">
 <img src="img/Banner-MS-AI-Tour-26.png" alt="decorative banner" width="1200"/>
 </p>
 
 # [Microsoft AI Tour 2026](https://aitour.microsoft.com)
 
-## 🔥BRKXXX: The GitHub Copilot Lab for Devs Who Think AI Is Still All Hype
+## WRK541: Real World Code Migration with Github Copilot Agent Mode
 
 If you will be delivering this session, check the [session-delivery-sources](./session-delivery-resources/) folder for slides, scripts, and other resources.
 
 ### Session Description
 
-*Add Session Description*
+- **Who is this for**: Any technologist that is looking to apply AI pair-programming techniques with GitHub Copilot to perform challenging work like migrating or translating from one programming language to another.
+- **What you'll learn**: You'll use advanced GitHub Copilot techniques that are specifically useful when translating projects in different programming languages, as well as the different modes GitHub Copilot has to offer.
+- **What you'll build**: An HTTP API that uses Rust with full compatibility from the original HTTP API written in Python.
 
 
 ### 🧠 Learning Outcomes
 
-By the end of this session, learners will be able to:
+In this workshop, you will:
 
--  
--
--
+  - Learn the differences about each of GitHub Copilot Modes, when to use each one, best practices and tools to help you get the most out of your interactions.
+  - Understand the Differences Between Python and Rust for Web Development
+  Learn the key differences in syntax, libraries, and frameworks when transitioning from Python's FastAPI to Rust's actix-web.
+  - Implement JSON Serialization and Deserialization in Rust
+  Gain hands-on experience using the serde library to handle JSON data, ensuring compatibility with the original Python API.
+  - Develop and Validate Incremental Endpoints in Rust
+  Practice creating and testing individual endpoints iteratively, ensuring correctness and alignment with the original Python API.
+  - Optimize Performance and Identify Bottlenecks in Rust
+  Learn to analyze and address potential performance issues, such as redundant file serialization, while building a production-ready Rust application.
+
+
+## 📣 Prerequisites
+
+Before joining the workshop, there is only one prerequisite: you must have a public GitHub account. All resources, dependencies, and data are part of the repository itself. Make sure you have your GitHub Copilot license, trial, or the free version.
+
+
 
 ### 💻 Technologies Used
 
-1.
-1.
-1.
+1. GitHub Copilot Chat
+1. VS Code
+1. Python & Rust
 
 ### 🔗 Session Resources
 | Resources          | Links                             | Description        |
@@ -86,6 +53,8 @@ By the end of this session, learners will be able to:
 | AI Tour 2026 Resource Center | https://aka.ms/AITour26-Resource-center | Links to all repos for AI Tour 26 Sessions |
 | Azure AI Foundry Community Discord | [![Microsoft Azure AI Foundry Discord](https://dcbadge.limes.pink/api/server/ByRwuEEgH4)](https://discord.com/invite/ByRwuEEgH4)| Connect with the Azure AI Foundry Community! |
 | Learn at AI Tour | https://aka.ms/LearnAtAITour | Continue learning on Microsoft Learn |
+| Code with GitHub Codespaces | https://learn.microsoft.com/training/modules/code-with-github-codespaces/ | Try out GitHub Codespaces!
+| Using advanced GitHub Copilot features | https://learn.microsoft.com/training/modules/advanced-github-copilot/ | Some advanced features and tooling
 
 ### 🌐 Multi-Language Support
 
@@ -101,17 +70,17 @@ By the end of this session, learners will be able to:
 
 <table>
 <tr>
-    <td align="center"><a href="http://github.com/mikekinsman">
-        <img src="https://github.com/mikekinsman.png" width="100px;" alt="INSERT NAME HERE"
+    <td align="center"><a href="https://github.com/alfredodeza">
+        <img src="https://github.com/alfredodeza.png" width="100px;" alt="Alfredo Deza"
 "/><br />
-        <sub><b> INSERT NAME HERE
+        <sub><b> Alfredo Deza
 </b></sub></a><br />
             <a href="https://github.com/mikekinsman" title="talk">📢</a> 
     </td>
-    <td align="center"><a href="http://github.com/mikekinsman">
-        <img src="https://github.com/mikekinsman.png" width="100px;" alt="INSERT NAME HERE
+    <td align="center"><a href="https://github.com/gcordido">
+        <img src="https://github.com/gcordido.png" width="100px;" alt="Gustavo Cordido
 "/><br />
-        <sub><b>INSERT NAME HERE
+        <sub><b>Gustavo Cordido
 </b></sub></a><br />
             <a href="https://github.com/mikekinsman" title="talk">📢</a> 
     </td>
