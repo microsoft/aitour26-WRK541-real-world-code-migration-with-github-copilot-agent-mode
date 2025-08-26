@@ -1,12 +1,15 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "AI Tour Repo",
-	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
-	"features": {
-		"ghcr.io/devcontainers/features/python:1": {}
-	},
-
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+		  "VARIANT": "3.12-bullseye"
+		}
+	  },
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -14,10 +17,32 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip3 install --user -r requirements.txt"
+	"postCreateCommand": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		"codespaces": {
+			"openFiles": [
+			  "workshop/README.md",
+			  "workshop/main.py",
+			]
+		},
+		"vscode": {
+			"settings": {
+			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
+			  "python.terminal.activateEnvInCurrentTerminal": true,
+			  "terminal.integrated.cwd": "workshop",
+			  "workbench.editorAssociations": {
+			    "*.md": "vscode.markdown.preview.editor"
+			  }
+			},
+			"extensions": [
+			  "ms-python.python",
+			  "ms-python.vscode-pylance",
+			  "GitHub.copilot"
+			]
+		}
+	}
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"

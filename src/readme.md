@@ -1,5 +1,8 @@
-## Source Code
-Place source code you're sharing in your session in this folder!
+# Source Code
 
-## Instructions
-Follow the steps in the [docs folder](../docs) to get started.
+Here you will find all the source code needed for the workshop.
+
+# Instructions
+
+The instructions are hosted in GitHub Pages: _INSERT LINK HERE_
+

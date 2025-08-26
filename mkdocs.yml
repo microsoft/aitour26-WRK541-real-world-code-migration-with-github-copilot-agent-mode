@@ -1,122 +1,92 @@
-# -----------------------------
-# Material Theme Configuration
-# ------------------------------
-# red, pink, purple, deep purple, indigo, 
-# blue, light blue, cyan, teal, green, light green, 
-# lime, yellow, amber, orange, deep orange, brown, 
-# grey, blue grey , black, white
-#    primary: pink # teal
-#    accent: indigo
-#
-# *** FONT ***
-# Guide: https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/?h=fonts
-# Google Fonts Supported: https://fonts.google.com/
-#
-# *** BLOG ***
-# https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/
-# ---------------------------------
-
-
-
-# Project information .........................................
-site_name: "Session Title"
-site_url: 
-site_author: Content Creator
-site_description: >-
-  Demo mkdocs for AI Tour Repos
+site_name: Real World Code Migration with GitHub Copilot
+site_author: Alfredo Deza, Gustavo Cordido
+site_description: Perform a challenging migration to a completely different language.
 
 # Repository ..................................................
-repo_name: microsoft/AITour26-Repo-Template
-repo_url: https://github.com/microsoft/AITour26-Repo-Template
+repo_name: Real World Code Migration with GitHub Copilot
+repo_url: https://github.com/gcordido/github-copilot-migrating-languages
+
 
 # Copyright ...................................................
 copyright: >
   Copyright &copy; 2023 - present Microsoft
 
-extra_css:
-  - assets/extra.css  # Adjust path if needed
+nav:
+  - Home: index.md
+  - Workshop Navigation: navigating-workshop.md
+  - Getting Started:
+    - Workshop Introduction: workshop-introduction.md
+    - Cloning the Repository: cloning-repository.md
+    - Understanding the Project: understanding-project.md
+  - Strategize with Copilot:
+    - Analyze the Project: analyze-project.md
+  - Converting to Rust:
+    - Create Rust Scaffolding: create-rust-scaffolding.md
+    - Implementing Endpoints: implementing-endpoints.md
+  - Validation and Testing:
+    - Validate Correctness: validate-correctness.md
+    - Add More Endpoints and Tests: add-more-endpoints-tests.md
+  - Summary: summary.md
+  - Bonus Content:
+    - Challenge 1: Challenge-1.md
+    - Challenge 2: Challenge-2.md
+    - Homework: Homework.md
+  - Resources: resources.md
 
-# Configuration ...............................................
+plugins:
+  - glightbox
+  - include-markdown
+  - search
+  - i18n:
+      docs_structure: folder
+      languages:
+        - locale: en
+          name: English
+          default: true
+
 theme:
   name: material
-  font:
-    code: Roboto Mono  #Monospaced
-    text: Roboto       #Regular
-  logo: assets/AITour.png
-  language: en
+  features:
+    - navigation.instant
+    - navigation.footer
+    - content.code.copy
+    - navigation.tabs.sticky 
+    - content.tabs.link
 
-  # Theme Modes ...............................................
+  font:
+    code: Roboto Mono
+    text: Roboto
+
   palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-      primary: blue
+    - scheme: default
+      primary: black
       accent: pink
       toggle:
         icon: material/brightness-2
         name: Switch to dark mode
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: green
+    - scheme: slate
+      primary: amber
       accent: cyan
       toggle:
-        icon: material/brightness-4
-        name: Switch to system preference 
-  
-  # Theme Features ...............................................
-  features:
-    - navigation.instant
-    - navigation.expand             # sidebar collapsible sections open
-    - navigation.instant.progress   # load progress indicator
-    - navigation.tracking           # tracks anchor tags in URL
-    - navigation.tabs               # tabbed on desktop, single in mobile    
-    - navigation.tabs.sticky        # tabs stick when scrolling downtheme:
-    - navigation.path               # add breadcrumbs
-    - navigation.indexes            # default index.md in folder is section page
-    - navigation.top
-    - toc.follow
-    - navigation.footer
-    - content.code.copy             # allow copy-paste from codeblocks
-    - content.tabs.link             # Ensures site-wide switch to same tab name
+        icon: material/brightness-7
+        name: Switch to light mode
 
-# Extras  ...............................................
-extra:
-  generator: false
-
-# Plugins  ...............................................
-plugins:
-  - search
-
-# Extensions  ...............................................
 markdown_extensions:
-  - abbr
-  - admonition
-  - attr_list
   - toc:
       permalink: true
-      toc_depth: 3
+      toc_depth: 2
+  - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight:
-      auto_title: true
-      linenums: true
-  - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
-      slugify: !!python/object/apply:pymdownx.slugs.slugify
-        kwds:
-          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
 
-# Navigation  ...............................................
-nav:
+# extra_javascript:
+  # - js/custom.js
+
+extra_css:
+  - css/custom.css
