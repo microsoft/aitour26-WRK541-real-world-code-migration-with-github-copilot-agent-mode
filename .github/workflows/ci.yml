@@ -8,8 +8,8 @@ permissions:
 jobs:
   deploy:
     env:
-      CONFIG_FILE: docs/mkdocs.yml
-      REQUIREMENTS: docs/requirements.txt
+      CONFIG_FILE: mkdocs.yml
+      REQUIREMENTS: requirements.txt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
