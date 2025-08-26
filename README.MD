@@ -75,18 +75,17 @@ Before joining the workshop, there is only one prerequisite: you must have a pub
 "/><br />
         <sub><b> Alfredo Deza
 </b></sub></a><br />
-            <a href="https://github.com/mikekinsman" title="talk">📢</a> 
+            <a href="https://github.com/alfredodeza" title="talk">📢</a> 
     </td>
     <td align="center"><a href="https://github.com/gcordido">
         <img src="https://github.com/gcordido.png" width="100px;" alt="Gustavo Cordido
 "/><br />
         <sub><b>Gustavo Cordido
 </b></sub></a><br />
-            <a href="https://github.com/mikekinsman" title="talk">📢</a> 
+            <a href="https://github.com/gcordido" title="talk">📢</a> 
     </td>
 </tr></table>
 
-## 
 
 ## Responsible AI 
 

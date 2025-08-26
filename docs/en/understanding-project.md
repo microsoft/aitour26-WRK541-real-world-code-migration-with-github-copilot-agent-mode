@@ -3,8 +3,7 @@
 Before we start migrating code, it's crucial to understand what we're working with.
 
 ## Start with the Python Project
-Familiarize yourself with the project and its structure. The main file is
-`main.py`, and is located within the `src` directory, under the `python-app` folder. This file contains the main logic of the application. Try to run it and see what the endpoints are.
+Familiarize yourself with the project and its structure. The main file is `main.py`, and is located within the `src` directory, under the `python-app` folder. This file contains the main logic of the application. Try to run it and see what the endpoints are.
 
 ### 1. Explore the project 
 
