@@ -28,4 +28,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r ${{ env.REQUIREMENTS }}
-      - run: mkdocs gh-deploy --force --config-file docs/mkdocs.yml
+      - run: mkdocs gh-deploy --force --config-file mkdocs.yml
