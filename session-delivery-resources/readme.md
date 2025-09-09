@@ -13,6 +13,7 @@ Prior to delivering the workshop please:
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
+| Session Recording | [Recording](https://youtu.be/l7V_t6IMZkA) | Full Session Recording |
 | Workshop Slide Deck      |  [Presentation](https://aka.ms/wrk541instructions)  | Presentation slides for this workshop with presenter notes and embedded demo video |
 | Session Delivery Deck     |  [Deck](https://aka.ms/wrk541slides ) | The session delivery slides |
 
