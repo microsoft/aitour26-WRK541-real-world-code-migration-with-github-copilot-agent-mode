@@ -61,7 +61,7 @@ Before joining the workshop, there is only one prerequisite: you must have a pub
 
 ### 🌐 Multi-Language Support
 
-*languages will go here when its time to localize*
+Additional languages coming soon!
 
 ## Content Owners
 
