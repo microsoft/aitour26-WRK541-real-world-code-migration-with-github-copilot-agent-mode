@@ -45,11 +45,6 @@ Before joining the workshop, there is only one prerequisite: you must have a pub
 1. VS Code
 1. Python & Rust
 
-### 🔗 Session Resources
-| Resources          | Links                             | Description        |
-|:-------------------|:----------------------------------|:-------------------|
-| Additional Resources for this session | https://learn.microsoft.com | Links specific to this session |
-
 ### 📚 Continued Learning Resources
 | Resources          | Links                             | Description        |
 |:-------------------|:----------------------------------|:-------------------|
