@@ -30,3 +30,9 @@ The framework and the serializer should automatically be included without you ha
 
 !!! bug "Why might some dependencies not work as expected? "
      Because LLMs sometimes don't have correct versions and tend to provide probabilistic results, not exact ones like a database would. Ensure that the versions used and installed will work and are correct.
+
+
+!!! warning "Ensure Rust is installed before moving forward."
+     For this lab, you may install Rust and the necessary tools by using the following command in the terminal:
+
+     `winget install Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000" && winget install Rustlang.Rustup`
