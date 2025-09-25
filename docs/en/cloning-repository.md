@@ -11,7 +11,7 @@
 5. Open VS Code.
 6. Open a Terminal by pressing ``CTRL + Shift + ` `` on Windows or Linux, or `` ^ + ⇧ + ` `` on Mac. (You may also do this via the Menu, by clicking **Terminal** followed by **New Terminal**)
 7. Type `git clone https://github.com/microsoft/aitour26-WRK541-the-github-copilot-lab-for-devs-who-think-ai-is-still-all-hype.git ` in the Terminal, then press Enter.
-8. Wait for it to clone!
+8. Wait for it to clone and navigate to the parent directory once it finishes.
 
 !!! success
     To revisit the workshop later, click your profile picture on GitHub and select **Your stars**.

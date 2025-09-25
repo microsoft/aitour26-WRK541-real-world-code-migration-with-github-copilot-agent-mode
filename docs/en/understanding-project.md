@@ -31,8 +31,9 @@ Use the `#codebase` tool to provide context to Copilot and explain what is going
 
 > *Try using GitHub Copilot in Ask Mode for this step.*
 
-Launch your project and run the web application. Use GitHub Copilot chat with the `main.py` file open, or type `#main.py` to provide context and ask about the endpoints.
+Next, we will launch the project and run the web application. Let's use GitHub Copilot chat with the `main.py` file open, or type `#main.py` to provide context and ask about the endpoints.
 
+- Ask how to run the web application
 - Try to run the project based on the suggestions of Copilot
 - See all the possible endpoints and their requests types
 
