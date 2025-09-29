@@ -1,7 +1,7 @@
 # Real World Code Migration with GitHub Copilot Agent Mode
 
 The instructions for this workshop are published to GitHub Pages at
-[aka.ms/aitour/wrk541](https://aka.ms/aitour/wrk541). This folder `docs` contains the source code for those instructions.
+[https://aka.ms/WRK541Workshop](https://aka.ms/WRK541Workshop). This folder `docs` contains the source code for those instructions.
 
 ## MKDocs
 
