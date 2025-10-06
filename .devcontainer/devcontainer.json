@@ -30,7 +30,7 @@
 			"settings": {
 			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
 			  "python.terminal.activateEnvInCurrentTerminal": true,
-			  "terminal.integrated.cwd": "workshop",
+			  "terminal.integrated.cwd": "src",
 			  "workbench.editorAssociations": {
 			    "*.md": "vscode.markdown.preview.editor"
 			  }
