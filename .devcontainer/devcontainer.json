@@ -23,8 +23,7 @@
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
-			  "workshop/README.md",
-			  "workshop/main.py",
+			  "src/python-app/webapp/main.py",
 			]
 		},
 		"vscode": {
