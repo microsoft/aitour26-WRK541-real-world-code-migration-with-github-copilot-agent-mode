@@ -1,3 +1,5 @@
+# Adding Rust tests
+
 ### 11. Finalizing the project with Rust tests
 Now that you have all the endpoints and tests passing, you can now use Rust tests to validate the correctness. The shell tests were good enough to validate both Python and Rust by using the HTTP API. But now you can use Rust tests to validate the correctness of the Rust project using its own tests.
 

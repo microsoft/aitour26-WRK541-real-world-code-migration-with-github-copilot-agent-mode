@@ -47,6 +47,7 @@ Next, we will launch the project and run the web application. Let's use GitHub C
     ```text
     #main.py how do I run the python webapp? 
     ```
+
 - Try to run the project based on the suggestions of Copilot  
 
 !!! tip "You'll need **uvicorn** to execute the FastAPI application."
@@ -59,10 +60,16 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 > *Try using GitHub Copilot in Agent Mode for this step.*
 
-Tests are provided in the `tests` directory. Open the `test_endpoints.sh` file and use it to run tests. It requires the Python application to be running. Run the tests and inspect the output.
+Tests are provided in the `tests` directory under `src/python-app/webapp`. Open the `test_endpoints.sh` file and use it to run tests. It requires the Python application to be running. Run the tests and inspect the output.
 
-- Ask GitHub Copilot if more tests can be added
-- If any tests are not currently passing, make sure they are updated
+Open a new bash terminal, make the test script executable and run it:
+
+```bash
+chmod +x tests/test_endpoints.sh
+./tests/test_endpoints.sh
+```
+
+- If any tests are not currently passing, leverage GitHub Copilot to help you fix them and then re-run the tests.
 
 !!! warning
     The application must be running for the tests to pass. If the app is not running you will get http errors.

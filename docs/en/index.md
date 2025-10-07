@@ -26,4 +26,16 @@ In this workshop, you will:
 
 Before joining the workshop, there is only one prerequisite: you must have your own GitHub account. All resources, dependencies, and data are part of the repository itself. Make sure you have your GitHub Copilot license, trial, or the free version.
 
+If you don't have a GitHub account yet, you can create one for free by following the instructions below.
+
+1. Go to [GitHub's Sign Up Page](https://github.com/join).
+2. Enter your email address, create a password, and choose a username. We recommend using a *personal email address* over a work one, to simplify the registration process.
+3. Select your Country/Region and agree to the terms of service.
+4. Click on the **Create account** button and wait for the verification email to arrive in your inbox.
+
+    ![GitHub Account Sign Up](./media/github_signup.png)
+
+5. Copy the verification code from the email and paste it into the verification field on the GitHub website. Then click on **Continue**.
+6. That's it! Now you are ready to go.
+
 Let's get started by clicking on the *Next Button* on the bottom right corner that reads **"Workshop Navigation"**.
