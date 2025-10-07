@@ -65,8 +65,7 @@ Tests are provided in the `tests` directory under `src/python-app/webapp`. Open 
 Open a new bash terminal, make the test script executable and run it:
 
 ```bash
-chmod +x tests/test_endpoints.sh
-./tests/test_endpoints.sh
+bash ./tests/test_endpoints.sh
 ```
 
 - If any tests are not currently passing, leverage GitHub Copilot to help you fix them and then re-run the tests.

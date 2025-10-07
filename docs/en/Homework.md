@@ -4,7 +4,7 @@ Congratulations on completing the workshop! To solidify your learning and explor
 
 ### Take Home Challenge: Deploying the application on Azure
 
-If you have achieved all previous steps, try
+If you have achieved all previous steps, including the containerization, try
 deploying your application on Azure. For this you will need an Azure account
 and [the GitHub Copilot for Azure
 extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azure-github-copilot)
