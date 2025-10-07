@@ -20,7 +20,7 @@ As we will carry out a more complex set of tasks, we will move on from **Edit Mo
 ??? Question "Tip"
      Prompt *(Agent Mode)*
 
-     `#codespace create the Rust scaffolding in rust-app folder, where we are going to migrate the python project. Don't perform any code migration for now. Provide me with guided steps to run the project afterwards.`
+     `#codebase create the Rust scaffolding in rust-app folder, where we are going to migrate the python project. Don't perform any code migration for now. Provide me with guided steps to run the project afterwards.`
 
 The framework and the serializer should automatically be included without you having to specify it. This file can be used for any other instruction you don't want to repeat.
 
