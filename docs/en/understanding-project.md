@@ -54,7 +54,7 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 - See all the possible endpoints and their requests types, by navigating to the swagger UI page, whose url is printed in the app startup output. 
 
-!!! tip "Have a look to [weather.json](../../src/python-app/webapp/weather.json) file to check the allowed parameters to test the endpoints."
+!!! tip "Have a look to [weather.json](https://github.com/carlotta94c/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode/blob/main/src/python-app/webapp/weather.json) file to check the allowed parameters to test the endpoints."
 
 ### 3. Explore and run the shell tests
 
@@ -62,10 +62,10 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 Tests are provided in the `tests` directory under `src/python-app/webapp`. Open the `test_endpoints.sh` file and use it to run tests. It requires the Python application to be running. Run the tests and inspect the output.
 
-Open a new bash terminal, make the test script executable and run it:
+Open a new bash terminal and run it:
 
 ```bash
-bash ./tests/test_endpoints.sh
+bash ./python-app/webapp/tests/test_endpoints.sh
 ```
 
 - If any tests are not currently passing, leverage GitHub Copilot to help you fix them and then re-run the tests.
