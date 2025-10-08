@@ -23,15 +23,14 @@
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
-			  "workshop/README.md",
-			  "workshop/main.py",
+			  "src/python-app/webapp/main.py",
 			]
 		},
 		"vscode": {
 			"settings": {
 			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
 			  "python.terminal.activateEnvInCurrentTerminal": true,
-			  "terminal.integrated.cwd": "workshop",
+			  "terminal.integrated.cwd": "src",
 			  "workbench.editorAssociations": {
 			    "*.md": "vscode.markdown.preview.editor"
 			  }
