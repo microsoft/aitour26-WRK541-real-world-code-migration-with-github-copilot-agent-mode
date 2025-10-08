@@ -54,7 +54,7 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 - See all the possible endpoints and their requests types, by navigating to the swagger UI page, whose url is printed in the app startup output. 
 
-!!! tip "Have a look to [weather.json](https://github.com/carlotta94c/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode/blob/main/src/python-app/webapp/weather.json) file to check the allowed parameters to test the endpoints."
+!!! tip "Have a look to [weather.json](https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode/blob/main/src/python-app/webapp/weather.json) file to check the allowed parameters to test the endpoints."
 
 ### 3. Explore and run the shell tests
 
