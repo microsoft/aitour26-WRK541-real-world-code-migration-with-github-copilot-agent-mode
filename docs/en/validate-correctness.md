@@ -23,6 +23,14 @@ Finally, you have a 1:1 mapping of the Python project to the Rust project. Now y
 - Run the tests to ensure they are passing, fix any issues that arise
 
 ??? question "Tip"
+    Prompt *(Ask Mode)*
+
+    ```text
+    The Rust API now has full parity with the Python application, but I want you to
+    suggest me other potential endpoints that might be useful.
+    ```
+
+??? question "Tip"
     Prompt *(Agent Mode)*
 
     ```text
