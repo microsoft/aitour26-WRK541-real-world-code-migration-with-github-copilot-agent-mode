@@ -22,7 +22,7 @@ Now that you have the scaffolding, you can start creating a single endpoint. Use
 Now that you have the first endpoint in Rust, it is time to validate. This process of creating code and validating it is iterative and a solid practice when you need to develop a new project. It is even more crucial now that you are rewriting a project in a new language.
 
 - Make sure the Python project is no longer running
-- Ask Copilot help to run the Rust project in the same address and port as the Python project so that tests can run
+- Ask Copilot help to run the Rust project in the same address and port (8000) as the Python project so that tests can run
 - Run the tests to ensure they are passing, fix any issues that arise
 
 ??? question "Tip"
