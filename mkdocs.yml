@@ -16,7 +16,7 @@ nav:
   - Workshop Navigation: navigating-workshop.md
   - Getting Started:
     - Workshop Introduction: workshop-introduction.md
-    - Cloning the Repository: cloning-repository.md
+    - Opening the Repository in GitHub Codespaces: opening-repository-in-GH-codespaces.md
     - Understanding the Project: understanding-project.md
   - Strategize with Copilot:
     - Analyze the Project: analyze-project.md
@@ -24,8 +24,8 @@ nav:
     - Create Rust Scaffolding: create-rust-scaffolding.md
     - Implementing Endpoints: implementing-endpoints.md
   - Validation and Testing:
-    - Validate Correctness: validate-correctness.md
-    - Add More Endpoints and Tests: add-more-endpoints-tests.md
+    - Validate correctness and add more endpoints: validate-correctness.md
+    - Add Rust Tests: add-rust-tests.md
   - Summary: summary.md
   - Bonus Content:
     - Challenge 1: Challenge-1.md

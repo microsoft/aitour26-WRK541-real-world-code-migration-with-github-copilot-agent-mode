@@ -17,22 +17,12 @@ actix-web framework using serde for serialization
 
 As we will carry out a more complex set of tasks, we will move on from **Edit Mode** and solely work in **Agent Mode**. Once you have switched, ask GitHub Copilot to create the scaffolding necessary for your Rust project. Ask GitHub Copilot to give you a step by step to start the project and the commands to run to get started.
 
-
-
 ??? Question "Tip"
      Prompt *(Agent Mode)*
-     
-     `#codespace create the Rust scaffolding to begin migrating the project and provide me with guided steps to run the project afterwards.`
 
+     `#codebase create the Rust scaffolding in rust-app folder, where we are going to migrate the python project. Don't perform any code migration for now. Provide me with guided steps to run the project afterwards.`
 
 The framework and the serializer should automatically be included without you having to specify it. This file can be used for any other instruction you don't want to repeat.
 
-
-!!! bug "Why might some dependencies not work as expected? "
-     Because LLMs sometimes don't have correct versions and tend to provide probabilistic results, not exact ones like a database would. Ensure that the versions used and installed will work and are correct.
-
-
-!!! warning "Ensure Rust is installed before moving forward."
-     For this lab, you may install Rust and the necessary tools by using the following command in the terminal:
-
-     `winget install Microsoft.VisualStudio.2022.BuildTools --override "--quiet --wait --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.22000" && winget install Rustlang.Rustup`
+Once GitHub Copilot has created the scaffolding, have a look at the files created in the `rust-app` folder. You should see a `Cargo.toml` file and a `src` folder with a `main.rs` file in it.
+Ask GitHub Copilot to clarify any doubts you might have about the files created and their purpose.
