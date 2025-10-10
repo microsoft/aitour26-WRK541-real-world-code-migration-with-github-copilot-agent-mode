@@ -14,7 +14,7 @@ First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, o
 ![An image showcasing the three different modes within the GitHub Copilot Chat window](./media/chat-mode-dropdown-ask.png "GitHub Copilot Modes")
 
 !!! Note
-GitHub Copilot is based on LLMs and therefore it has a non-deterministic behavior; you might get different responses to the same input prompt. The suggested prompts in this repo have been tested with model **GPT-4.1**, so you might want to choose that model from the dropdown menu. However, you are also welcome to explore different models.
+    GitHub Copilot is based on LLMs and therefore it has a non-deterministic behavior; you might get different responses to the same input prompt. The suggested prompts in this repo have been tested with model **GPT-4.1**, so you might want to choose that model from the dropdown menu. However, you are also welcome to explore     different models.
 
 ![Model choice dropdown](./media/model-choice-dropdown.png)
 
