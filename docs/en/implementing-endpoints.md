@@ -29,7 +29,7 @@ Now that you have the first endpoint in Rust, it is time to validate. This proce
     Prompt *(Agent Mode)*
 
     ```text
-    Run the Rust project in the same address and port as the Python one. Make sure
+    Run the Rust project in the same address and port (8000) as the Python one. Make sure
     the Python API is no longer running. Then, run the BASH tests so that I can
     verify the first endpoint in Rust is working. Only focus on the "/" endpoint
     for now

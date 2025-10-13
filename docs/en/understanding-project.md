@@ -38,6 +38,8 @@ Use the `#codebase` tool to provide context to Copilot and explain what is going
 
 Next, we will launch the project and run the web application. Let's use GitHub Copilot chat with the `main.py` file open, or type `#main.py` to provide context and ask about the endpoints.
 
+!!! tip "When Copilot output include a terminal command you can click on the button in the right upper corner to paste it directly in the terminal. ![Paste to terminal](./media/paste_to_terminal.png)"
+
 - Ask how to run the web application
 
 ??? question "Tip"
@@ -50,7 +52,10 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 - Try to run the project based on the suggestions of Copilot  
 
-!!! tip "You'll need **uvicorn** to execute the FastAPI application."
+!!! tip "You'll need to have a terminal opened in your codespace and you'll need **uvicorn** to execute the FastAPI application."
+
+!!! warning
+    If you are getting the following error message "Error loading ASGI app. Could not import module (...)", make sure the path suggested by Copilot in its output is the correct file path of the app logic (main.py).
 
 - See all the possible endpoints and their requests types, by navigating to the swagger UI page, whose url is printed in the app startup output. 
 
@@ -65,7 +70,7 @@ Tests are provided in the `tests` directory under `src/python-app/webapp`. Open 
 Open a new bash terminal and run it:
 
 ```bash
-bash ./python-app/webapp/tests/test_endpoints.sh
+bash ./tests/test_endpoints.sh
 ```
 
 - If any tests are not currently passing, leverage GitHub Copilot to help you fix them and then re-run the tests.

@@ -17,10 +17,12 @@ actix-web framework using serde for serialization
 
 As we will carry out a more complex set of tasks, we will move on from **Edit Mode** and solely work in **Agent Mode**. Once you have switched, ask GitHub Copilot to create the scaffolding necessary for your Rust project. Ask GitHub Copilot to give you a step by step to start the project and the commands to run to get started.
 
-??? Question "Tip"
+??? question "Tip"
      Prompt *(Agent Mode)*
 
-     `#codebase create the Rust scaffolding in rust-app folder, where we are going to migrate the python project. Don't perform any code migration for now. Provide me with guided steps to run the project afterwards.`
+     ```text
+     #file:rust-app create the Rust scaffolding in rust-app folder, where we are going to migrate the python project. Don't perform any code migration for now. Provide me with guided steps to run the project afterwards.
+     ```
 
 The framework and the serializer should automatically be included without you having to specify it. This file can be used for any other instruction you don't want to repeat.
 
