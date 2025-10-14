@@ -39,6 +39,8 @@ Now that you have the first endpoint in Rust, it is time to validate. This proce
 
 Use the same process as above to create all other endpoints. Add a single endpoint at a time, validate it, and run the tests.
 
+!!! tip "When implementing the next endpoint - e.g. '/countries' - specify in your prompt to Copilot that it should use the same data used by the python app, hosted in the 'weather.json' file."
+
 For the JSON file, you will need to serialize and use `serde`. If you aren't familiar with this process you will have to rely on Copilot guidance. Ensure that you generate the smallest possible code and validate it immediately.
 
 !!! success "Validating smaller parts of the code is easier than validating a whole file. It is also easier to debug smaller parts of the code. This is a good practice when using GitHub Copilot and it will help you in the long run."
