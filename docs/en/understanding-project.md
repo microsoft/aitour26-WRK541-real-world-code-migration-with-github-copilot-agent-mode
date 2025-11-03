@@ -65,7 +65,7 @@ Next, we will launch the project and run the web application. Let's use GitHub C
 
 > *Try using GitHub Copilot in Agent Mode for this step.*
 
-Tests are provided in the `tests` directory under `src/python-app/webapp`. Open the `test_endpoints.sh` file and use it to run tests. It requires the Python application to be running. Run the tests and inspect the output.
+Tests are provided in the `tests` directory under `src/tests`. Open the `test_endpoints.sh` file and use it to run tests. It requires the Python application to be running. Run the tests and inspect the output.
 
 Open a new bash terminal and run it:
 
