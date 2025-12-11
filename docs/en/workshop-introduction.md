@@ -12,7 +12,7 @@ This workshop will guide you through the complete migration process using GitHub
 
 !!! info "Understanding Language Migration in Production"
     **Why do companies migrate between programming languages?**
-    
+
     Organizations migrate codebases for several strategic reasons:
     
     - **Performance Requirements**: C# with .NET offers better performance characteristics for high-throughput APIs
@@ -94,7 +94,7 @@ When working with GitHub Copilot throughout this workshop, you'll encounter prom
 
 !!! tip "How to Use #file: References - Quick Guide"
     **What it does:** The `#file:filename` syntax provides specific file context to GitHub Copilot, helping it understand exactly which file you're working with.
-    
+
     **How to use it:**
     
     1. Type `#` in the Copilot chat window

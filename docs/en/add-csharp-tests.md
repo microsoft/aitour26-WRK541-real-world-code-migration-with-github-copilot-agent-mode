@@ -9,7 +9,7 @@ Now that you have all the endpoints validated with Python tests, you can optiona
 - You can take the approach of adding one test at a time and validate it. This is the same process as before and will help you concentrate on one thing at a time.
 - Or you can ask Copilot to scaffold the whole test project and add tests for all endpoints at once.
 
-Try to use Plan Mode for this step. Remember, you must first ask GitHub COpilot to create a plan with your requirements, and once the plan is created and you validated it, you can ask Copilot to execute the plan.
+Try to use Plan Mode for this step. Remember, you must first ask GitHub Copilot to create a plan with your requirements, and once the plan is created and you validated it, you can ask Copilot to execute the plan.
 
 ??? question "Tip"
     Prompt *(Plan Mode)*
