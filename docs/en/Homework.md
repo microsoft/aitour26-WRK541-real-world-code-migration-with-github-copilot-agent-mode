@@ -13,9 +13,9 @@ which will help you ask questions and get guidance for deployment.
 ![Extension Page for GitHub Copilot for Azure](./media/gh-copilot-for-azure.png)
 
 1. Use `@azure` after signing into your Azure account to ask how to deploy the
-   containerized Rust application
+   containerized C# application
 1. Use one of the suggested services for deployment, for example, Azure
-   Container Apps, to deploy the container
+   Container Apps or Azure App Service, to deploy the container
 1. Verify your container is deployed and working
 
 By the end, ensure you cleanup and remove any and all resources to prevent

@@ -4,6 +4,8 @@ Ready for an extra challenge? This section presents advanced scenarios that will
 
 ## Challenge 1: Containerizing the project
 
+**Difficulty:** 🔥 Intermediate
+
 Containerize this project so that users can run it in other environments
 without having to install and compile dependencies.
 
@@ -11,9 +13,9 @@ You can start with Agent mode to create the Dockerfile, then switch over to
 Edit mode when making updates to the Dockerfile. Finally, switch over to Agent
 mode to get guidance verifying the container.
 
-1. Ask Copilot to help you generate a Dockerfile to containerize the Rust
+1. Ask Copilot to help you generate a Dockerfile to containerize the C#
    project
-1. Review the Dockerfile created, optionally switch to Edit mode to make
+1. Review the Dockerfile created, optionally switch to Agent mode to make
    specific changes to the file
 1. Use Agent mode to verify the container builds and can run
 

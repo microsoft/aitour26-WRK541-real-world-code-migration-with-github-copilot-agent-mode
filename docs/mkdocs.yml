@@ -1,0 +1,97 @@
+site_name: Real World Code Migration with GitHub Copilot
+site_author: Alfredo Deza, Gustavo Cordido
+site_description: Perform a challenging migration to a completely different language.
+
+docs_dir: en
+site_dir: ../site
+
+# Repository ..................................................
+repo_name: Real World Code Migration with GitHub Copilot
+repo_url: https://github.com/elbruno/wrk541-wip
+
+
+# Copyright ...................................................
+copyright: >
+  Copyright &copy; 2023 - present Microsoft
+
+nav:
+  - Home: index.md
+  - Workshop Navigation: navigating-workshop.md
+  - Getting Started:
+    - Workshop Introduction: workshop-introduction.md
+    - Open the Repository (Local or Codespaces): opening-repository-in-GH-codespaces.md
+    - Understanding the Project: understanding-project.md
+  - Strategize with Copilot:
+    - Analyze the Project: analyze-project.md
+  - Converting to C#:
+    - Create C# Scaffolding: create-csharp-scaffolding.md
+    - Implementing Endpoints: implementing-endpoints.md
+  - Validation and Testing:
+    - Validate correctness and add more endpoints: validate-correctness.md
+    - Add C# Tests: add-csharp-tests.md
+  - Summary: summary.md
+  - Bonus Content:
+    - Challenge 1: Challenge-1.md
+    - Challenge 2: Challenge-2.md
+    - Homework: Homework.md
+  - Reference Materials:
+    - Completed Example Guide: completed-example-guide.md
+    - Glossary: glossary.md
+    - Terminology Guide: terminology-guide.md
+  - For Proctors:
+    - Common Questions FAQ: proctor-resources/common-questions-faq.md
+    - Troubleshooting Playbook: proctor-resources/troubleshooting-playbook.md
+    - Progress Tracker Template: proctor-resources/progress-tracker-template.md
+  - Resources: resources.md
+
+plugins:
+  - glightbox
+  - include-markdown
+  - search
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.footer
+    - content.code.copy
+    - navigation.tabs.sticky 
+    - content.tabs.link
+
+  font:
+    code: Roboto Mono
+    text: Roboto
+
+  palette:
+    - scheme: default
+      primary: black
+      accent: pink
+      toggle:
+        icon: material/brightness-2
+        name: Switch to dark mode
+    - scheme: slate
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 2
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+
+# extra_javascript:
+  # - js/custom.js
+
+extra_css:
+  - ../css/custom.css

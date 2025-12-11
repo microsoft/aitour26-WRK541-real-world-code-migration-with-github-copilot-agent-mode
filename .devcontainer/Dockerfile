@@ -12,7 +12,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     pkg-config \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* 
+    wget \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install .NET 10 SDK
+RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh \
+    && chmod +x dotnet-install.sh \
+    && ./dotnet-install.sh --channel 10.0 --install-dir /usr/share/dotnet \
+    && rm dotnet-install.sh \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
     
 # Define the path to the virtualenv to work with
 ARG VENV_PATH="/home/vscode/venv"

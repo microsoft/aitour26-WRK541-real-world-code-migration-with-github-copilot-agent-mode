@@ -17,13 +17,14 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y",
+	// "postCreateCommand": "",
 
 	// Configure tool-specific properties.
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
 			  "src/python-app/webapp/main.py",
+			  "README.md"
 			]
 		},
 		"vscode": {
@@ -38,6 +39,8 @@
 			"extensions": [
 			  "ms-python.python",
 			  "ms-python.vscode-pylance",
+			  "ms-dotnettools.csharp",
+			  "ms-dotnettools.csdevkit",
 			  "GitHub.copilot"
 			]
 		}
