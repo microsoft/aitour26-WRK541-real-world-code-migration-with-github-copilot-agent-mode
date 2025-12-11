@@ -174,3 +174,8 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+## C# / .NET build artifacts
+bin/
+obj/
+*.user
