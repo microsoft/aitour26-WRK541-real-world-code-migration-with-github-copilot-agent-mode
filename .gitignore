@@ -174,8 +174,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-
-## C# / .NET build artifacts
-bin/
-obj/
-*.user
+ 
+# Exclude C# build output folders everywhere
+**/bin/
+**/obj/
