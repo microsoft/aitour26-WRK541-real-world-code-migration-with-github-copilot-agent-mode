@@ -1,6 +1,2 @@
-using System;
-
-namespace CSharpApp
-{
-    public partial class Program { }
-}
+// Expose Program as partial in the global namespace so integration tests (WebApplicationFactory) can reference it
+public partial class Program { }

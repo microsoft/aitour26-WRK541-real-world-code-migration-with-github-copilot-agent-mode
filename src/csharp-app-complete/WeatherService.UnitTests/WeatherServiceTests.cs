@@ -1,7 +1,8 @@
 using CSharpApp.Services;
 using CSharpApp.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace WeatherService.UnitTests;
+namespace WeatherServiceUnitTests;
 
 [TestClass]
 public class WeatherServiceTests
