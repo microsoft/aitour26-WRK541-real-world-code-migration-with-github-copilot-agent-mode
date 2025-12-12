@@ -1,6 +1,9 @@
 # Opening the Repository (Local or GitHub Codespaces)
 
-Choose the workflow that best fits your setup. If you're working locally, we assume all required tools are already installed (see the Resources page for a quick prerequisite checklist). If you prefer a fully hosted experience, follow the GitHub Codespaces path.
+Choose the workflow that best fits your setup. If you're working locally in your development environment, we assume all required tools are already installed (see the Resources page for a quick prerequisite checklist). If you prefer a fully hosted experience, follow the GitHub Codespaces path.
+
+!!! note "Event attendees"
+    If you are attending this workshop at a Microsoft event (where a pre-provisioned lab environment is available), you can still follow the **Local environment** instructions if you prefer to work on your own machine. The Local environment steps assume you will provide any required credentials and resources locally instead of using the event lab. See the event guidance for details about the lab resources and credentials.
 
 === "Local environment"
 
