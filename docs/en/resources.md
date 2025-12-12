@@ -21,4 +21,4 @@ If you want to run the workshop locally instead of using GitHub Codespaces, make
 - .NET 10 SDK (for the C# Minimal API)
 - Optional: REST Client extension for testing endpoints from VS Code
 
-For detailed installation and verification steps, see the full prerequisite checklist in the repository: [Local Development Prerequisites](https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode/blob/main/PREREQUISITES.md).
+For detailed installation and verification steps, see the full prerequisite checklist in the repository: [Local Development Prerequisites](../../PREREQUISITES.md).
