@@ -1,4 +1,4 @@
-name: ci 
+name: ci
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ permissions:
 jobs:
   deploy:
     env:
-      CONFIG_FILE: mkdocs.yml
+      CONFIG_FILE: docs/mkdocs.yml
       REQUIREMENTS: requirements.txt
     runs-on: ubuntu-latest
     steps:
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -28,4 +28,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r ${{ env.REQUIREMENTS }}
-      - run: mkdocs gh-deploy --force --config-file mkdocs.yml
+      - run: mkdocs gh-deploy --force --config-file ${{ env.CONFIG_FILE }}

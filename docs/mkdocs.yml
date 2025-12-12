@@ -2,6 +2,9 @@ site_name: Real World Code Migration with GitHub Copilot
 site_author: Alfredo Deza, Gustavo Cordido
 site_description: Perform a challenging migration to a completely different language.
 
+docs_dir: en
+site_dir: ../site
+
 # Repository ..................................................
 repo_name: Real World Code Migration with GitHub Copilot
 repo_url: https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode
@@ -16,7 +19,7 @@ nav:
   - Workshop Navigation: navigating-workshop.md
   - Getting Started:
     - Workshop Introduction: workshop-introduction.md
-    - Opening the Repository in GitHub Codespaces: opening-repository-in-GH-codespaces.md
+    - Open the Repository (Local or Codespaces): opening-repository-in-GH-codespaces.md
     - Understanding the Project: understanding-project.md
   - Strategize with Copilot:
     - Analyze the Project: analyze-project.md
@@ -31,18 +34,20 @@ nav:
     - Challenge 1: Challenge-1.md
     - Challenge 2: Challenge-2.md
     - Homework: Homework.md
+  - Reference Materials:
+    - Completed Example Guide: completed-example-guide.md
+    - Glossary: glossary.md
+    - Terminology Guide: terminology-guide.md
+  - For Proctors:
+    - Common Questions FAQ: proctor-resources/common-questions-faq.md
+    - Troubleshooting Playbook: proctor-resources/troubleshooting-playbook.md
+    - Progress Tracker Template: proctor-resources/progress-tracker-template.md
   - Resources: resources.md
 
 plugins:
   - glightbox
   - include-markdown
   - search
-  - i18n:
-      docs_structure: folder
-      languages:
-        - locale: en
-          name: English
-          default: true
 
 theme:
   name: material
@@ -89,4 +94,4 @@ markdown_extensions:
   # - js/custom.js
 
 extra_css:
-  - css/custom.css
+  - ../css/custom.css
