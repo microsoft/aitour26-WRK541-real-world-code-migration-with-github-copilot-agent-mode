@@ -1,32 +1,22 @@
 # Workshop Introduction
 
-## Migrating Zava's Temperature API from Python to C\#
+## Migrating Zava's Temperature API from Python to C #
 
-As part of **Zava**'s business goals, the company is expanding their cutting-edge smart fiber technology to a wider array of retail products. Zava specializes in heat-resistant materials that adapt to various climate conditions, and their current temperature/season/location API serves as a critical backend service for these innovative products.
+Zava recently acquired an external company whose apps and services were implemented primarily in Python. Many of those services include temperature, season and location endpoints that are useful for Zava's product line. Since Zava's main backend and operational tooling are built on C#, the engineering leadership started a deliberate migration process to bring the acquired Python services into the C#/.NET ecosystem.
 
-To support this expansion and ensure enterprise-level reliability, Zava needs to **migrate their existing Python-based temperature API to C#**. This migration will provide enhanced type safety through C#'s compile-time checking, improved performance with optimized runtime, and better scalability to handle the increased demand from retail market integration with enterprise-grade .NET infrastructure. The API currently provides historical weather data across multiple countries, cities, and months - data that's essential for Zava's smart fiber products to perform optimally in different environmental conditions.
+This migration effort is intended to unify the technology stack across Zava's platform, simplify operational maintenance, and enable smoother integration between the acquired services and Zava's existing .NET-based backend. Migrating the Python-based temperature API to C# will provide enhanced type safety via compile-time checking, improved runtime performance, and better alignment with Zava's enterprise tooling and deployment practices on Azure. The API provides historical weather data across multiple countries, cities, and months — data that's essential for Zava's smart fiber products to adapt to different environmental conditions.
 
-This workshop will guide you through the complete migration process using GitHub Copilot, demonstrating how AI-assisted development can streamline the transition from Python to C# while maintaining full API compatibility and improving overall system robustness.
+This workshop will guide you through a realistic migration scenario using GitHub Copilot: taking an existing Python API (from an acquired codebase), incrementally reimplementing it in C#, and validating that behavior is preserved while improving maintainability and integration with Zava's main backend.
 
 ### 🎯 Why This Matters: Real-World Context
 
 !!! info "Understanding Language Migration in Production"
-    **Why do companies migrate between programming languages?**
 
-    Organizations migrate codebases for several strategic reasons:
-    
-    - **Performance Requirements**: C# with .NET offers better performance characteristics for high-throughput APIs
-    - **Type Safety**: Static typing in C# catches errors at compile-time, reducing production bugs
-    - **Ecosystem Integration**: .NET's enterprise tooling and Azure integration support scalability
-    - **Team Expertise**: Aligning technology stack with team skills and hiring market
-    - **Long-term Support**: Enterprise support and predictable release cycles
-    
     **Why did Zava choose C# for this migration?**
     
-    - Enhanced type safety ensures reliable smart fiber product integrations
-    - Better performance handles increased retail market demand
-    - Seamless Azure deployment for global scalability
-    - Strong tooling ecosystem for enterprise-grade monitoring and debugging
+    - Easier integration with Zava's existing C# backend and internal tooling after the acquisition, reducing integration friction and time-to-market
+    - First-class Azure ecosystem support (Application Insights, Azure AD integration, IaC tooling) for enterprise deployments
+    - Strong enterprise tooling (Visual Studio, JetBrains Rider, .NET analyzers) that improves developer productivity, debugging and refactoring at scale
     
     **Why incremental validation matters in production:**
     
@@ -47,7 +37,21 @@ as they happen.
 
 ## Workshop features
 
-You will be working with a Python project that has an HTTP API. This project needs to be migrated and your main task will be to migrate it over using the C# programming language with .NET Minimal APIs.
+You will be working with a Python project (representing an acquired service) that exposes an HTTP API. This project needs to be migrated and your main task will be to reimplement and integrate it using the C# programming language with .NET Minimal APIs so it fits into Zava's main backend.
+
+### Zava Enterprise Standards — How this migration helps
+
+Zava enforces a set of enterprise standards for services running in production. Below are the key standards and how migrating to C#/.NET helps meet them more effectively than the current Python-based implementation:
+
+- Security and identity: .NET has mature libraries for secure authentication/authorization (Azure AD integration, token validation, strong cryptography libraries) and a robust ecosystem of security scanning and policy enforcement tools.
+- Observability and diagnostics: Deep integration with Application Insights, structured logging (ILogger), distributed tracing, and first-class telemetry SDKs make it easier to meet Zava's observability SLAs.
+- Reliability and performance: Strong concurrency primitives, the .NET runtime optimizations, and optional ahead-of-time compilation reduce latency and improve throughput for enterprise load patterns.
+- Maintainability and governance: Static typing, Roslyn analyzers, standardized NuGet package management, and enforced code quality checks help Zava keep a consistent, auditable codebase across teams.
+- CI/CD and deployment automation: Out-of-the-box support for Azure DevOps / GitHub Actions, container tooling, and environment configuration patterns make it straightforward to automate secure blue/green or canary deployments.
+- Compliance and auditability: Tooling for static analysis, code scanning, and binary signing, combined with centralized dependency policies, helps satisfy regulatory and internal audit requirements.
+- Developer productivity and onboarding: Rich IDE support, deterministic builds, and advanced refactoring tools shorten onboarding time for developers joining Zava's teams.
+
+While Python is an excellent language for many domains, aligning services with Zava's enterprise standards is easier and more consistent within the C#/.NET ecosystem for this organization. The migration strategy in this workshop highlights incremental validation so teams can preserve behavior while gaining these enterprise benefits.
 
 Here are some features:
 
