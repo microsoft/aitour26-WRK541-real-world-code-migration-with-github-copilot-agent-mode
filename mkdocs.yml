@@ -20,12 +20,12 @@ nav:
     - Understanding the Project: understanding-project.md
   - Strategize with Copilot:
     - Analyze the Project: analyze-project.md
-  - Converting to Rust:
-    - Create Rust Scaffolding: create-rust-scaffolding.md
+  - Converting to C#:
+    - Create C# Scaffolding: create-csharp-scaffolding.md
     - Implementing Endpoints: implementing-endpoints.md
   - Validation and Testing:
     - Validate correctness and add more endpoints: validate-correctness.md
-    - Add Rust Tests: add-rust-tests.md
+    - Add C# Tests: add-csharp-tests.md
   - Summary: summary.md
   - Bonus Content:
     - Challenge 1: Challenge-1.md
