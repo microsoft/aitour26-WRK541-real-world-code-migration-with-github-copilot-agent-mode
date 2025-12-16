@@ -4,19 +4,17 @@
 
 Prior to delivering the workshop please:
 
-1.  Read this document and all included resources included in their entirety.
-2.  Watch the video presentation
-3.  Ask questions of the content leads! We're here to help!
-
+1. Read this document and all included resources included in their entirety.
+2. Watch the video presentation
+3. Ask questions of the content leads! We're here to help!
 
 ## 📁 File Summary
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| Session Recording | [Recording](https://youtu.be/l7V_t6IMZkA) | Full Session Recording |
-| Workshop Slide Deck      |  [Presentation](https://aka.ms/wrk541instructions)  | Presentation slides for this workshop with presenter notes and embedded demo video |
-| Session Delivery Deck     |  [Deck](https://aka.ms/wrk541slides ) | The session delivery slides |
-
+| Session Recording | [Recording](https://aka.ms/AAz1srm) | Full Session Recording |
+| Session Delivery Deck |  [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
+| Workshop Tutorial |  [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
 
 ## 🚀Get Started
 
@@ -24,14 +22,16 @@ The workshop is divided into multiple sections including 16 slides, 1 demo and 2
 
 ### 🕐Timing
 
-| Time        | Description 
+| Time        | Description
 --------------|-------------
 0:00 - 5:00   | Intro and overview
 5:00 - 70:00  | Session Steps
 70:00 - 75:00 | Wrap up and Q&A
 
 ### 🏋️Preparation
+
 Preparation Notes go here
 
 ### 🖥️Demos
+
 Description of demos goes here
