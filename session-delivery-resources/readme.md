@@ -12,7 +12,7 @@ Prior to delivering the workshop please:
 
 | Resources          | Links                            | Description |
 |-------------------|----------------------------------|-------------------|
-| Session Recording | [Recording](https://aka.ms/AAz1srm) | Full Session Recording |
+| Session Recording | [Recording](https://aka.ms/AAz1srm) | Overview Session Recording |
 | Session Delivery Deck |  [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
 | Workshop Tutorial |  [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
 
@@ -22,16 +22,16 @@ The workshop is divided into multiple sections including 16 slides, 1 demo and 2
 
 ### 🕐Timing
 
-| Time        | Description
---------------|-------------
-0:00 - 5:00   | Intro and overview
-5:00 - 70:00  | Session Steps
-70:00 - 75:00 | Wrap up and Q&A
+| Time        | Description |
+|--------------|-------------|
+| 0:00 - 5:00   | Intro and overview |
+| 5:00 - 70:00  | Session Steps |
+| 70:00 - 75:00 | Wrap up and Q&A |
 
 ### 🏋️Preparation
 
-Preparation Notes go here
+No preparation is required for this workshop. Participants can join without prior setup — all necessary materials and instructions are provided during the session.
 
 ### 🖥️Demos
 
-Description of demos goes here
+There are no separate pre-configured demos required for this workshop. The session is instructor-led and includes hands-on labs; any demonstrations will be performed live during delivery and do not require advance demo setup.
