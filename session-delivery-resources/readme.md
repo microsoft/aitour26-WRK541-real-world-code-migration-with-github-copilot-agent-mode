@@ -10,11 +10,12 @@ Prior to delivering the workshop please:
 
 ## 📁 File Summary
 
-| Resources          | Links                            | Description |
-|-------------------|----------------------------------|-------------------|
+| Resources | Links | Description |
+| ------------------- | ---------------------------------- | ------------------- |
 | Session Recording | [Recording](https://aka.ms/AAz1srm) | Overview Session Recording |
-| Session Delivery Deck |  [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
-| Workshop Tutorial |  [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
+| Workshop Recording | [Recording](https://assetsmanagement952e.blob.core.windows.net//assets/WRK541%20Real%20world%20code%20migration%20with%20GitHub%20Copilot%20Agent%20Mode/EN-US_WRK541_Tech_FY26_Full_Demo_V1.0.mp4) | Complete Workshop Session Recording |
+| Session Delivery Deck | [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
+| Workshop Tutorial | [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
 
 ## 🚀Get Started
 
@@ -22,10 +23,10 @@ The workshop is divided into multiple sections including 16 slides, 1 demo and 2
 
 ### 🕐Timing
 
-| Time        | Description |
-|--------------|-------------|
-| 0:00 - 5:00   | Intro and overview |
-| 5:00 - 70:00  | Session Steps |
+| Time | Description |
+| -------------- | ------------- |
+| 0:00 - 5:00 | Intro and overview |
+| 5:00 - 70:00 | Session Steps |
 | 70:00 - 75:00 | Wrap up and Q&A |
 
 ### 🏋️Preparation
