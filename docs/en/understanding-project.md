@@ -17,7 +17,7 @@ First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, o
 !!! Note
     GitHub Copilot is based on LLMs and therefore it has a non-deterministic behavior; you might get different responses to the same input prompt. The suggested prompts in this repo have been tested with model **GPT-5-mini**, so you might want to choose that model from the dropdown menu. However, you are also welcome to explore different models.
 
-![Model choice dropdown](./media/model-choice-dropdown.png)
+![Model choice dropdown](./media/model-picker.png)
 
 Use the `#codebase` tool to provide context to Copilot and explain what is going on with this project.
 
