@@ -13,7 +13,7 @@ Prior to delivering the workshop please:
 | Resources | Links | Description |
 | ------------------- | ---------------------------------- | ------------------- |
 | Session Recording | [Recording](https://youtu.be/_o-h5k-Wnn8) | Overview Session Recording |
-| Workshop Recording | [Recording](https://assetsmanagement952e.blob.core.windows.net//assets/WRK541%20Real%20world%20code%20migration%20with%20GitHub%20Copilot%20Agent%20Mode/EN-US_WRK541_Tech_FY26_Full_Demo_V1.0.mp4) | Complete Workshop Session Recording |
+| Workshop Recording | [Recording](https://assetsmanagement952e.blob.core.windows.net/assets/WRK541%20Real%20world%20code%20migration%20with%20GitHub%20Copilot%20Agent%20Mode/EN-US_WRK541_Tech_FY26_Full_Demo_V1.0.mp4) | Complete Workshop Session Recording |
 | Session Delivery Deck | [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
 | Workshop Tutorial | [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
 
