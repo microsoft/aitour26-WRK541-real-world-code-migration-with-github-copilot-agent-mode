@@ -62,7 +62,7 @@ Here are some features:
 
 ## GitHub Copilot Modes
 
-GitHub Copilot offers distinct modes: **Ask**, **Edit**, **Plan** and **Agent**, each designed to enhance your coding workflow in unique ways. These modes cater to different levels of assistance, from answering questions to autonomously managing complex tasks.
+GitHub Copilot offers distinct modes: **Ask**, **Plan** and **Agent**, each designed to enhance your coding workflow in unique ways. These modes cater to different levels of assistance, from answering questions to autonomously managing complex tasks.
 
 ### Ask Mode
 
@@ -70,13 +70,6 @@ GitHub Copilot offers distinct modes: **Ask**, **Edit**, **Plan** and **Agent**,
 
 !!! tip
     Ask mode works best for quick clarifications, brainstorming solutions and providing sample implementations.
-
-### Edit Mode
-
-**Edit Mode** enables *direct code modifications* based on natural language instructions. You can highlight specific code blocks or files, describe the desired changes, and Copilot will propose edits. These changes are presented as diffs for your review, ensuring you retain control over the final implementation.
-
-!!! tip
-    Try Edit mode for targeted updates, such as refactoring or adding error handling. Most of the time, Agent mode is the preferred option over Edit mode for more complex tasks.
 
 ### Agent Mode
 

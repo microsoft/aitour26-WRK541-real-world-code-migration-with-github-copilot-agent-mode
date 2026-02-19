@@ -2,7 +2,7 @@
 
 ## Congratulations! You have completed this workshop
 
-This workshop walked through a realistic, end‑to‑end migration of a small Python (FastAPI) HTTP service into a C# web service using ASP.NET Core Minimal APIs, using **GitHub Copilot** as an AI pair‑programmer across its three modes (Ask, Edit, Agent, Plan). The focus was on disciplined, incremental migration, test‑driven validation, and leveraging AI responsibly (small diffs, continuous feedback, explicit validation).
+This workshop walked through a realistic, end‑to‑end migration of a small Python (FastAPI) HTTP service into a C# web service using ASP.NET Core Minimal APIs, using **GitHub Copilot** as an AI pair‑programmer across its three modes (Ask, Agent, Plan). The focus was on disciplined, incremental migration, test‑driven validation, and leveraging AI responsibly (small diffs, continuous feedback, explicit validation).
 
 ## Story & Goal
 
@@ -13,7 +13,6 @@ You acted as an engineer at "Zava" migrating a temperature / seasonal lookup API
 | Mode  | Purpose in Workshop | Examples |
 |-------|---------------------|----------|
 | Ask   | Discovery, explanations, brainstorming without large code dumps | Summarize codebase, identify missing tests |
-| Edit  | Targeted diff-based modifications | Adding specific tests, refining Dockerfile / Makefile snippets |
 | Plan  | Outlining tasks and breaking down complex work into manageable steps | Analyzing endpoints, creating implementation roadmaps, suggesting project structures |
 | Agent | Multi-step orchestration: scaffolding, executing commands, iterative endpoint migration | Creating C# project, running tests after each endpoint |
 

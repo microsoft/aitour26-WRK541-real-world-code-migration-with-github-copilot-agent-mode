@@ -36,7 +36,6 @@ This guide establishes consistent terminology for the WRK541 workshop documentat
 Always capitalize mode names when referring to specific Copilot features:
 
 - **Ask Mode** (not "ask mode" or "Ask mode")
-- **Edit Mode** (not "edit mode")
 - **Agent Mode** (not "agent mode")
 - **Plan Mode** (not "plan mode")
 
