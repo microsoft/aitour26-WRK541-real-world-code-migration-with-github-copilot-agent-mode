@@ -1,6 +1,6 @@
 # Workshop Introduction
 
-## Migrating Zava's Temperature API from Python to C #
+## Migrating Zava's Temperature API from Python to C#
 
 Zava recently acquired an external company whose apps and services were implemented primarily in Python. Many of those services include temperature, season and location endpoints that are useful for Zava's product line. Since Zava's main backend and operational tooling are built on C#, the engineering leadership started a deliberate migration process to bring the acquired Python services into the C#/.NET ecosystem.
 
