@@ -7,7 +7,8 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:1-${VARIANT}
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system dependencies and Rust
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN rm -f /etc/apt/sources.list.d/yarn.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
     curl \
     build-essential \
     libssl-dev \
