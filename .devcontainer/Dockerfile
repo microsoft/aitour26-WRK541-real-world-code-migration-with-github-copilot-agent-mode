@@ -6,12 +6,12 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:1-${VARIANT}
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies and Rust
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install system dependencies
+# The base image includes a Yarn APT source with an untrusted/expired GPG key; removing it prevents `apt-get update` from failing.
+RUN rm -f /etc/apt/sources.list.d/yarn.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
     curl \
     build-essential \
-    libssl-dev \
-    pkg-config \
     wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
