@@ -102,10 +102,11 @@ Let's start asking GitHub Copilot to help you plan the implementation of the mis
 ??? question "Tip"
     Prompt *(Plan Mode)*
 
+    ```text
     Analyze the other endpoints in the #file:main.py and implement this in the #file:Program.cs file using .NET Minimal APIs.
     Implement the swagger annotations for each endpoint.
     The root of the API should redirect to the swagger UI page.    
-
+    ```
 Once the plan is done you should see the plan, and you can ask GitHub Copilot to start implementing the steps by switching to **Agent Mode** and asking it to follow the plan step by step.
 
 !!! important
