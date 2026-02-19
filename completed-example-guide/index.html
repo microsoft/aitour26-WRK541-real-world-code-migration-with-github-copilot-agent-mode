@@ -1,0 +1,1986 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Perform a challenging migration to a completely different language.">
+      
+      
+        <meta name="author" content="Alfredo Deza, Gustavo Cordido">
+      
+      
+      
+        <link rel="prev" href="../Homework/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Completed Example Guide - Real World Code Migration with GitHub Copilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#completed-example-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Real World Code Migration with GitHub Copilot" class="md-header__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Real World Code Migration with GitHub Copilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Completed Example Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Real World Code Migration with GitHub Copilot" class="md-nav__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Real World Code Migration with GitHub Copilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../navigating-workshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opening-repository-in-GH-codespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open the Repository (Local or Codespaces)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../understanding-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategize with Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strategize with Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analyze-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze the Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Converting to C#
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Converting to C#
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-csharp-scaffolding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create C# Scaffolding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementing-endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Testing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validation and Testing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validate-correctness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validate correctness and add more endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-csharp-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add C# Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus Content
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bonus Content
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Challenge-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Challenge 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Challenge-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Challenge 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Homework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference Materials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Completed Example Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Completed Example Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location-of-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 Location of Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 When to Use the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-completed-example-effectively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 How to Use the Completed Example Effectively
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-completed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Understanding the Completed Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏃 Running the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-from-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Learning from the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Comparing Approaches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources-in-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources in Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Best Practices Demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-proctors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Tips for Proctors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#academic-integrity-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 Academic Integrity Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminology-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminology Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For Proctors
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    For Proctors
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/common-questions-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Questions FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/troubleshooting-playbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting Playbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/progress-tracker-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress Tracker Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#location-of-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📂 Location of Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 When to Use the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-completed-example-effectively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 How to Use the Completed Example Effectively
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-completed-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Understanding the Completed Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏃 Running the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-from-the-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎓 Learning from the Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔄 Comparing Approaches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources-in-completed-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources in Completed Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Best Practices Demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-proctors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Tips for Proctors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#academic-integrity-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚫 Academic Integrity Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="completed-example-guide">Completed Example Guide<a class="headerlink" href="#completed-example-guide" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to use the completed C# implementation as a reference during the workshop.</p>
+<h2 id="location-of-completed-example">📂 Location of Completed Example<a class="headerlink" href="#location-of-completed-example" title="Permanent link">&para;</a></h2>
+<p>The completed C# implementation is available in:</p>
+<div class="highlight"><pre><span></span><code>src/csharp-app-complete/
+</code></pre></div>
+<p>This directory contains a fully working C# implementation of the weather API that you can reference at any time during the workshop.</p>
+<h2 id="when-to-use-the-completed-example">🎯 When to Use the Completed Example<a class="headerlink" href="#when-to-use-the-completed-example" title="Permanent link">&para;</a></h2>
+<h3 id="appropriate-times-to-reference">✅ <strong>Appropriate Times to Reference:</strong><a class="headerlink" href="#appropriate-times-to-reference" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>When You're Stuck</strong></li>
+<li>You've tried debugging for 10+ minutes</li>
+<li>Error messages aren't helping</li>
+<li>
+<p>You want to compare your approach with a working solution</p>
+</li>
+<li>
+<p><strong>To Understand Patterns</strong></p>
+</li>
+<li>How should JSON deserialization be structured?</li>
+<li>What's the correct way to organize endpoints?</li>
+<li>
+<p>How are models typically defined in C#?</p>
+</li>
+<li>
+<p><strong>For Code Comparison</strong></p>
+</li>
+<li>Your code works but you want to see alternatives</li>
+<li>Checking if your implementation follows best practices</li>
+<li>
+<p>Understanding different approaches to the same problem</p>
+</li>
+<li>
+<p><strong>When Time is Limited</strong></p>
+</li>
+<li>You're behind schedule and need to catch up</li>
+<li>You want to see the end result to understand the goal</li>
+<li>Workshop is ending and you want to see completion</li>
+</ol>
+<h3 id="times-to-avoid">⚠️ <strong>Times to Avoid:</strong><a class="headerlink" href="#times-to-avoid" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Before Attempting Yourself</strong></li>
+<li>Don't copy-paste without understanding</li>
+<li>Try your own solution first</li>
+<li>
+<p>Use GitHub Copilot before looking at the answer</p>
+</li>
+<li>
+<p><strong>When You're Learning</strong></p>
+</li>
+<li>Struggling is part of learning</li>
+<li>Making mistakes helps you learn</li>
+<li>Problem-solving builds skills</li>
+</ol>
+<h2 id="how-to-use-the-completed-example-effectively">🔍 How to Use the Completed Example Effectively<a class="headerlink" href="#how-to-use-the-completed-example-effectively" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-try-it-yourself-first">Step 1: Try It Yourself First<a class="headerlink" href="#step-1-try-it-yourself-first" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>1. Attempt the task using GitHub Copilot
+2. Debug if you encounter issues
+3. Spend at least 5-10 minutes trying to solve it
+4. THEN look at the completed example if still stuck
+</code></pre></div>
+<h3 id="step-2-compare-dont-copy">Step 2: Compare, Don't Copy<a class="headerlink" href="#step-2-compare-dont-copy" title="Permanent link">&para;</a></h3>
+<p>When referencing the completed example:</p>
+<div class="highlight"><pre><span></span><code>✅ DO: Read and understand the logic
+✅ DO: Note the patterns and structure
+✅ DO: Compare with your implementation
+✅ DO: Close the file and try to apply what you learned
+
+❌ DON&#39;T: Copy-paste entire files
+❌ DON&#39;T: Use it without understanding
+❌ DON&#39;T: Skip trying your own solution first
+</code></pre></div>
+<h3 id="step-3-ask-questions">Step 3: Ask Questions<a class="headerlink" href="#step-3-ask-questions" title="Permanent link">&para;</a></h3>
+<p>If you don't understand something in the completed example:</p>
+<ul>
+<li>Ask GitHub Copilot to explain specific code sections</li>
+<li>Ask a proctor to walk you through the logic</li>
+<li>Reference the inline comments (see below)</li>
+</ul>
+<h2 id="understanding-the-completed-code">📖 Understanding the Completed Code<a class="headerlink" href="#understanding-the-completed-code" title="Permanent link">&para;</a></h2>
+<p>The completed example includes comments explaining key decisions. Here's what to look for:</p>
+<h3 id="programcs-structure">Program.cs Structure<a class="headerlink" href="#programcs-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// 1. Builder configuration</span>
+<span class="c1">//    - Adds services like Swagger</span>
+<span class="c1">//    - Configures JSON serialization</span>
+
+<span class="c1">// 2. App configuration</span>
+<span class="c1">//    - Sets up middleware</span>
+<span class="c1">//    - Enables Swagger in development</span>
+
+<span class="c1">// 3. Endpoint definitions</span>
+<span class="c1">//    - Each endpoint is clearly separated</span>
+<span class="c1">//    - Comments explain the logic</span>
+
+<span class="c1">// 4. Data loading</span>
+<span class="c1">//    - JSON file is read once at startup</span>
+<span class="c1">//    - Deserialized into strongly-typed models</span>
+</code></pre></div>
+<h3 id="key-patterns-to-note">Key Patterns to Note<a class="headerlink" href="#key-patterns-to-note" title="Permanent link">&para;</a></h3>
+<p><strong>1. JSON Deserialization:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// The weather data is loaded once and cached</span>
+<span class="c1">// This is more efficient than reading the file on every request</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">weatherData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JsonSerializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="o">&lt;</span><span class="n">WeatherData</span><span class="o">&gt;</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</code></pre></div></p>
+<p><strong>2. Endpoint Structure:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Endpoints follow a consistent pattern:</span>
+<span class="c1">// 1. Define the route</span>
+<span class="c1">// 2. Implement the logic</span>
+<span class="c1">// 3. Return appropriate status codes</span>
+<span class="c1">// 4. Add OpenAPI documentation</span>
+</code></pre></div></p>
+<p><strong>3. Error Handling:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Always check for null/invalid data</span>
+<span class="c1">// Return appropriate HTTP status codes (404, 400, 200)</span>
+<span class="c1">// Provide meaningful error messages</span>
+</code></pre></div></p>
+<h2 id="running-the-completed-example">🏃 Running the Completed Example<a class="headerlink" href="#running-the-completed-example" title="Permanent link">&para;</a></h2>
+<p>You can run the completed example to see how it should work:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Navigate to completed example</span>
+<span class="nb">cd</span><span class="w"> </span>src/csharp-app-complete
+
+<span class="c1"># Run the application</span>
+dotnet<span class="w"> </span>run<span class="w"> </span>--urls<span class="w"> </span><span class="s2">&quot;http://localhost:8000&quot;</span>
+
+<span class="c1"># In another terminal, run tests</span>
+<span class="nb">cd</span><span class="w"> </span>src/python-app/webapp
+pytest<span class="w"> </span>test_main.py<span class="w"> </span>-v
+</code></pre></div>
+<p><strong>Expected Result:</strong> All tests should pass ✅</p>
+<h2 id="learning-from-the-completed-example">🎓 Learning from the Completed Example<a class="headerlink" href="#learning-from-the-completed-example" title="Permanent link">&para;</a></h2>
+<h3 id="exercise-1-code-reading">Exercise 1: Code Reading<a class="headerlink" href="#exercise-1-code-reading" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open <code>src/csharp-app-complete/Program.cs</code></li>
+<li>Read through the code from top to bottom</li>
+<li>For each endpoint, identify:</li>
+<li>What HTTP method is used (GET, POST, etc.)</li>
+<li>What parameters it accepts</li>
+<li>What it returns</li>
+<li>How errors are handled</li>
+</ol>
+<h3 id="exercise-2-pattern-recognition">Exercise 2: Pattern Recognition<a class="headerlink" href="#exercise-2-pattern-recognition" title="Permanent link">&para;</a></h3>
+<p>Compare your code with the completed example:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Your Implementation</th>
+<th>Completed Example</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON Loading</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Endpoint Structure</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Error Handling</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Data Models</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exercise-3-improvement-ideas">Exercise 3: Improvement Ideas<a class="headerlink" href="#exercise-3-improvement-ideas" title="Permanent link">&para;</a></h3>
+<p>After reviewing the completed example:</p>
+<ol>
+<li>What could you improve in your implementation?</li>
+<li>What patterns from the completed code would you adopt?</li>
+<li>Are there differences that are just stylistic vs. functional?</li>
+</ol>
+<h2 id="comparing-approaches">🔄 Comparing Approaches<a class="headerlink" href="#comparing-approaches" title="Permanent link">&para;</a></h2>
+<p>It's valuable to see that there are multiple correct ways to solve problems:</p>
+<h3 id="your-approach-might-differ-in">Your Approach Might Differ In:<a class="headerlink" href="#your-approach-might-differ-in" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Variable naming</strong> - As long as it's clear, it's fine</li>
+<li><strong>Code organization</strong> - Different structures can both work</li>
+<li><strong>Error handling specifics</strong> - Various approaches are valid</li>
+<li><strong>Comment style</strong> - Your style may differ</li>
+</ul>
+<h3 id="your-approach-should-match-in">Your Approach Should Match In:<a class="headerlink" href="#your-approach-should-match-in" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Endpoint behavior</strong> - Must match Python API</li>
+<li><strong>Status codes</strong> - Should return correct HTTP status codes</li>
+<li><strong>JSON structure</strong> - Response format should match</li>
+<li><strong>Error responses</strong> - Should handle errors appropriately</li>
+</ul>
+<h2 id="additional-resources-in-completed-example">📚 Additional Resources in Completed Example<a class="headerlink" href="#additional-resources-in-completed-example" title="Permanent link">&para;</a></h2>
+<h3 id="files-to-review">Files to Review:<a class="headerlink" href="#files-to-review" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>src/csharp-app-complete/
+├── Program.cs           # Main application file
+├── Models.cs           # Data models (if separated)
+├── weather.json        # Same data file as Python version
+└── *.csproj           # Project configuration
+</code></pre></div>
+<h3 id="what-each-file-teaches">What Each File Teaches:<a class="headerlink" href="#what-each-file-teaches" title="Permanent link">&para;</a></h3>
+<p><strong>Program.cs:</strong>
+- How to structure a Minimal API
+- Service configuration
+- Endpoint implementation
+- Swagger setup</p>
+<p><strong>Models.cs (if present):</strong>
+- C# class structure
+- JSON property mapping
+- Data type choices</p>
+<p><strong>weather.json:</strong>
+- Data structure
+- How JSON maps to C# models</p>
+<h2 id="best-practices-demonstrated">🎯 Best Practices Demonstrated<a class="headerlink" href="#best-practices-demonstrated" title="Permanent link">&para;</a></h2>
+<p>The completed example demonstrates several best practices:</p>
+<ol>
+<li><strong>Single Responsibility</strong> - Each endpoint does one thing</li>
+<li><strong>Error Handling</strong> - Appropriate status codes and messages</li>
+<li><strong>Code Organization</strong> - Clear structure and flow</li>
+<li><strong>Documentation</strong> - Swagger annotations for API docs</li>
+<li><strong>Performance</strong> - Data loaded once, not per request</li>
+<li><strong>Type Safety</strong> - Strongly typed models prevent errors</li>
+</ol>
+<h2 id="tips-for-proctors">💡 Tips for Proctors<a class="headerlink" href="#tips-for-proctors" title="Permanent link">&para;</a></h2>
+<p>When guiding attendees to use the completed example:</p>
+<h3 id="encourage-self-discovery">Encourage Self-Discovery:<a class="headerlink" href="#encourage-self-discovery" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&quot;Have you looked at the completed example in src/csharp-app-complete?
+Let&#39;s look at how that endpoint is structured and see if it helps.&quot;
+</code></pre></div>
+<h3 id="guide-comparison">Guide Comparison:<a class="headerlink" href="#guide-comparison" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&quot;Open your Program.cs and the completed Program.cs side by side.
+What differences do you notice? Which approach do you prefer and why?&quot;
+</code></pre></div>
+<h3 id="promote-understanding">Promote Understanding:<a class="headerlink" href="#promote-understanding" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>&quot;Don&#39;t just copy - try to understand why it&#39;s structured that way.
+Can you explain what this section does?&quot;
+</code></pre></div>
+<h2 id="academic-integrity-note">🚫 Academic Integrity Note<a class="headerlink" href="#academic-integrity-note" title="Permanent link">&para;</a></h2>
+<p>While this is a workshop and not graded:</p>
+<ul>
+<li><strong>Learning happens through struggle</strong> - Don't short-circuit your learning</li>
+<li><strong>Understanding is the goal</strong> - Not just getting it done</li>
+<li><strong>Ask for help</strong> - Proctors and Copilot are here to support you</li>
+<li><strong>Compare, don't copy</strong> - Use it as a reference, not a shortcut</li>
+</ul>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The completed example is a <strong>learning tool</strong>, not a shortcut:</p>
+<p>✅ Use it when stuck after genuine effort<br />
+✅ Use it to understand patterns and best practices<br />
+✅ Use it to compare approaches<br />
+✅ Use it to verify your understanding  </p>
+<p>❌ Don't use it to skip the learning process<br />
+❌ Don't copy without understanding<br />
+❌ Don't look before attempting yourself  </p>
+<p><strong>Remember:</strong> The goal is to learn how to work with GitHub Copilot and migrate code between languages. The completed example supports that goal, but the real value is in the journey of solving problems with AI assistance.</p>
+<hr />
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<p><strong>Location:</strong> <code>src/csharp-app-complete/</code><br />
+<strong>When to use:</strong> After attempting yourself<br />
+<strong>How to use:</strong> Compare and understand, don't copy<br />
+<strong>Why it exists:</strong> To show a complete, working solution<br />
+<strong>Best approach:</strong> Try → Debug → Compare → Learn → Apply  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Homework/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Homework">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Homework
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - present Microsoft
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.footer", "content.code.copy", "navigation.tabs.sticky", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

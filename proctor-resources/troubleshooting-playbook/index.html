@@ -1,0 +1,2151 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Perform a challenging migration to a completely different language.">
+      
+      
+        <meta name="author" content="Alfredo Deza, Gustavo Cordido">
+      
+      
+      
+        <link rel="prev" href="../common-questions-faq/">
+      
+      
+        <link rel="next" href="../progress-tracker-template/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+    
+    
+      
+        <title>Troubleshooting Playbook - Real World Code Migration with GitHub Copilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#proctor-troubleshooting-playbook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Real World Code Migration with GitHub Copilot" class="md-header__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Real World Code Migration with GitHub Copilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Troubleshooting Playbook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Real World Code Migration with GitHub Copilot" class="md-nav__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Real World Code Migration with GitHub Copilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../navigating-workshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Navigation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../workshop-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workshop Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../opening-repository-in-GH-codespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open the Repository (Local or Codespaces)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../understanding-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understanding the Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategize with Copilot
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strategize with Copilot
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../analyze-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyze the Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Converting to C#
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Converting to C#
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-csharp-scaffolding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create C# Scaffolding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../implementing-endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation and Testing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Validation and Testing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../validate-correctness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validate correctness and add more endpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../add-csharp-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Add C# Tests
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bonus Content
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bonus Content
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Challenge-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Challenge 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Challenge-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Challenge 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Homework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Homework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference Materials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../completed-example-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Completed Example Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminology-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminology Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    For Proctors
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    For Proctors
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-questions-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Questions FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting Playbook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting Playbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#critical-issues-immediate-action-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Critical Issues (Immediate Action Required)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-frequent-but-non-critical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Common Issues (Frequent but Non-Critical)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-techniques-for-proctors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Debugging Techniques for Proctors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking-issues-during-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Tracking Issues During Workshop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-issue-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Proactive Issue Prevention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Escalation Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pro-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Pro Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../progress-tracker-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Progress Tracker Template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#critical-issues-immediate-action-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚨 Critical Issues (Immediate Action Required)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues-frequent-but-non-critical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ Common Issues (Frequent but Non-Critical)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-techniques-for-proctors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Debugging Techniques for Proctors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tracking-issues-during-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Tracking Issues During Workshop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proactive-issue-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Proactive Issue Prevention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-command-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Command Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#escalation-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📞 Escalation Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pro-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Pro Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="proctor-troubleshooting-playbook">Proctor Troubleshooting Playbook<a class="headerlink" href="#proctor-troubleshooting-playbook" title="Permanent link">&para;</a></h1>
+<p>This playbook provides proctors with quick solutions to common technical issues that arise during the workshop. Use this for fast issue resolution and to minimize disruption to the workshop flow.</p>
+<h2 id="critical-issues-immediate-action-required">🚨 Critical Issues (Immediate Action Required)<a class="headerlink" href="#critical-issues-immediate-action-required" title="Permanent link">&para;</a></h2>
+<h3 id="issue-attendees-codespace-wont-start">Issue: Attendee's Codespace Won't Start<a class="headerlink" href="#issue-attendees-codespace-wont-start" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Codespace stuck on "Starting..."
+- Error message during Codespace creation
+- Codespace starts but immediately stops</p>
+<p><strong>Solution Steps:</strong></p>
+<ol>
+<li><strong>Check GitHub Status</strong> (30 seconds)</li>
+<li>Visit <a href="https://githubstatus.com">githubstatus.com</a></li>
+<li>
+<p>If Codespaces are down, switch to local development guide</p>
+</li>
+<li>
+<p><strong>Try Different Browser</strong> (1 minute)</p>
+</li>
+<li>Sometimes browser extensions interfere</li>
+<li>Try incognito/private mode</li>
+<li>
+<p>Chrome and Edge work best</p>
+</li>
+<li>
+<p><strong>Delete and Recreate</strong> (2 minutes)
+   <div class="highlight"><pre><span></span><code>1. Go to github.com/codespaces
+2. Delete the problematic Codespace
+3. Return to repository
+4. Click &quot;Code&quot; → &quot;Codespaces&quot; → &quot;New codespace&quot;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Fallback to Local</strong> (if issue persists)</p>
+</li>
+<li>Guide attendee to PREREQUISITES.md</li>
+<li>Have them clone repository locally</li>
+<li>Verify Python 3.12 and .NET 10 SDK installed</li>
+</ol>
+<p><strong>Prevention:</strong>
+- Before workshop: Test Codespaces creation yourself
+- Have local development guide ready as backup</p>
+<hr />
+<h3 id="issue-copilot-not-activatedworking">Issue: Copilot Not Activated/Working<a class="headerlink" href="#issue-copilot-not-activatedworking" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Copilot icon shows error
+- No suggestions appearing
+- "Copilot is not available" message</p>
+<p><strong>Solution Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Check Copilot Status</strong> (30 seconds)
+   <div class="highlight"><pre><span></span><code>- Look at status bar (bottom of VS Code)
+- Copilot icon should show without red X
+- Click icon to see detailed status
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Verify Subscription</strong> (1 minute)
+   <div class="highlight"><pre><span></span><code>- Go to github.com/settings/copilot
+- Verify active subscription/trial
+- Check if it expired today
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Re-authenticate</strong> (2 minutes)
+   <div class="highlight"><pre><span></span><code>1. Ctrl+Shift+P → &quot;Sign out of GitHub&quot;
+2. Wait 10 seconds
+3. Ctrl+Shift+P → &quot;Sign in to GitHub&quot;
+4. Complete authentication flow
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Reload VS Code</strong> (30 seconds)
+   <div class="highlight"><pre><span></span><code>Ctrl+Shift+P → &quot;Reload Window&quot;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check Extensions</strong> (1 minute)
+   <div class="highlight"><pre><span></span><code>- Verify GitHub Copilot extension installed
+- Verify GitHub Copilot Chat extension installed
+- Update extensions if updates available
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Workaround:</strong>
+- If Copilot Chat works but inline doesn't (or vice versa), use whichever works
+- They can complete workshop with Chat alone</p>
+<p><strong>Prevention:</strong>
+- In pre-workshop email: Remind attendees to verify Copilot access
+- Have them test Copilot before workshop day</p>
+<hr />
+<h3 id="issue-widespread-test-failures-multiple-attendees">Issue: Widespread Test Failures (Multiple Attendees)<a class="headerlink" href="#issue-widespread-test-failures-multiple-attendees" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Many attendees reporting same test failing
+- Pattern of failures across the room</p>
+<p><strong>Root Causes &amp; Solutions:</strong></p>
+<ol>
+<li>
+<p><strong>App Not Running</strong> (Most Common)
+   <div class="highlight"><pre><span></span><code>Solution: Remind everyone to start the app first
+
+Terminal 1:
+cd src/csharp-app
+dotnet run --urls &quot;http://localhost:8000&quot;
+
+Terminal 2:
+cd src/python-app/webapp
+pytest test_main.py -v
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Wrong Port</strong>
+   <div class="highlight"><pre><span></span><code>Solution: Check they&#39;re using port 8000
+
+# When running C# app:
+dotnet run --urls &quot;http://localhost:8000&quot;
+
+# Not:
+dotnet run  # (uses port 5000 by default)
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Environment Variable Not Set</strong>
+   <div class="highlight"><pre><span></span><code>Solution: Set BASE_URL if needed
+
+Windows PowerShell:
+$env:BASE_URL=&quot;http://localhost:8000&quot;
+
+Linux/Mac:
+export BASE_URL=&quot;http://localhost:8000&quot;
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Quick Check Announcement:</strong>
+<div class="highlight"><pre><span></span><code>&quot;If tests are failing, please verify:
+1. Is your app running in a terminal?
+2. Is it on port 8000?
+3. Can you curl http://localhost:8000 and get a response?
+Let me know if you still have issues after checking these.&quot;
+</code></pre></div></p>
+<hr />
+<h3 id="issue-internet-connectivity-problems">Issue: Internet Connectivity Problems<a class="headerlink" href="#issue-internet-connectivity-problems" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Can't access GitHub
+- Copilot not responding
+- Package installations failing</p>
+<p><strong>Solution Steps:</strong></p>
+<ol>
+<li>
+<p><strong>Verify Connectivity</strong> (1 minute)
+   <div class="highlight"><pre><span></span><code>ping<span class="w"> </span>github.com
+curl<span class="w"> </span>https://api.github.com
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check Proxy/Firewall</strong> (if in corporate environment)</p>
+</li>
+<li>Ask venue IT about proxy settings</li>
+<li>
+<p>May need to configure git/npm proxy</p>
+</li>
+<li>
+<p><strong>Use Offline Mode</strong> (Fallback)
+   <div class="highlight"><pre><span></span><code>- Reference completed code in src/csharp-app-complete
+- Work from printed materials if available
+- Pair with someone with working connection
+</code></pre></div></p>
+</li>
+</ol>
+<p><strong>Prevention:</strong>
+- Test venue WiFi before workshop
+- Have offline materials ready (completed code, printed guides)
+- Consider mobile hotspot as backup</p>
+<hr />
+<h2 id="common-issues-frequent-but-non-critical">⚠️ Common Issues (Frequent but Non-Critical)<a class="headerlink" href="#common-issues-frequent-but-non-critical" title="Permanent link">&para;</a></h2>
+<h3 id="issue-port-8000-already-in-use">Issue: Port 8000 Already in Use<a class="headerlink" href="#issue-port-8000-already-in-use" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Error: "Address already in use"
+- Can't start app on port 8000</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Windows PowerShell:</strong>
+<div class="highlight"><pre><span></span><code><span class="c"># Find what&#39;s using port 8000</span>
+<span class="nb">Get-NetTCPConnection</span> <span class="n">-LocalPort</span> <span class="n">8000</span>
+
+<span class="c"># Kill the process (replace &lt;PID&gt;)</span>
+<span class="nb">Stop-Process</span> <span class="n">-Id</span> <span class="p">&lt;</span><span class="n">PID</span><span class="p">&gt;</span> <span class="n">-Force</span>
+</code></pre></div></p>
+<p><strong>Linux/Mac:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Find what&#39;s using port 8000</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>:8000
+
+<span class="c1"># Kill the process</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;
+</code></pre></div></p>
+<p><strong>Alternative:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Use a different port</span>
+dotnet<span class="w"> </span>run<span class="w"> </span>--urls<span class="w"> </span><span class="s2">&quot;http://localhost:8001&quot;</span>
+
+<span class="c1"># Remember to update BASE_URL</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BASE_URL</span><span class="o">=</span><span class="s2">&quot;http://localhost:8001&quot;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="issue-python-dependencies-not-installed">Issue: Python Dependencies Not Installed<a class="headerlink" href="#issue-python-dependencies-not-installed" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- <code>ModuleNotFoundError: No module named 'fastapi'</code>
+- Import errors when running Python app</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>src/python-app/webapp
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>../requirements.txt
+
+<span class="c1"># Or in parent directory:</span>
+<span class="nb">cd</span><span class="w"> </span>src/python-app
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></p>
+<p><strong>Verify:</strong>
+<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>fastapi
+<span class="c1"># Should show fastapi==0.103.2</span>
+</code></pre></div></p>
+<hr />
+<h3 id="issue-net-sdk-not-found-local-development">Issue: .NET SDK Not Found (Local Development)<a class="headerlink" href="#issue-net-sdk-not-found-local-development" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- <code>dotnet: command not found</code>
+- <code>The specified SDK version is not available</code></p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>
+<p><strong>Verify Installation:</strong>
+   <div class="highlight"><pre><span></span><code>dotnet<span class="w"> </span>--version
+<span class="c1"># Should show 10.0.x</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>If Not Installed:</strong></p>
+</li>
+<li>Send them to: https://dotnet.microsoft.com/download/dotnet/10.0</li>
+<li>Download and install .NET 10 SDK</li>
+<li>
+<p>Restart terminal/VS Code after installation</p>
+</li>
+<li>
+<p><strong>Path Issues:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1"># Add to PATH if needed</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PATH</span><span class="s2">:/usr/share/dotnet&quot;</span>
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="issue-json-deserialization-errors">Issue: JSON Deserialization Errors<a class="headerlink" href="#issue-json-deserialization-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Error reading weather.json
+- Null reference exceptions
+- Data not loading</p>
+<p><strong>Common Causes:</strong></p>
+<ol>
+<li>
+<p><strong>File Path Wrong:</strong>
+   <div class="highlight"><pre><span></span><code><span class="c1">// Wrong (might not work when running from different directory)</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">&quot;weather.json&quot;</span><span class="p">);</span>
+
+<span class="c1">// Better</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="s">&quot;weather.json&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// In same directory</span>
+<span class="c1">// Or use full path from project root</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>JSON Format Issues:</strong></p>
+</li>
+<li>Check weather.json is valid JSON</li>
+<li>
+<p>Verify model classes match JSON structure</p>
+</li>
+<li>
+<p><strong>Encoding Issues:</strong></p>
+</li>
+<li>Use UTF8: <code>File.ReadAllText("weather.json", Encoding.UTF8)</code></li>
+</ol>
+<p><strong>Quick Fix:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// Add null checks</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">weatherData</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Results</span><span class="p">.</span><span class="n">Problem</span><span class="p">(</span><span class="s">&quot;Failed to load weather data&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="issue-vs-code-not-showing-copilot-chat">Issue: VS Code Not Showing Copilot Chat<a class="headerlink" href="#issue-vs-code-not-showing-copilot-chat" title="Permanent link">&para;</a></h3>
+<p><strong>Symptoms:</strong>
+- Chat icon missing
+- Can't open Copilot Chat panel
+- Extension installed but not visible</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>
+<p><strong>Open Chat Panel:</strong>
+   <div class="highlight"><pre><span></span><code>Ctrl+Alt+I (Windows/Linux)
+Cmd+Shift+I (Mac)
+
+Or: View → Command Palette → &quot;GitHub Copilot: Open Chat&quot;
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Check Extension:</strong>
+   <div class="highlight"><pre><span></span><code>Extensions → Search &quot;GitHub Copilot Chat&quot;
+Should show as installed and enabled
+If not, install it
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Reload Window:</strong>
+   <div class="highlight"><pre><span></span><code>Ctrl+Shift+P → &quot;Reload Window&quot;
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="issue-tests-pass-locally-but-not-in-cicd">Issue: Tests Pass Locally But Not in CI/CD<a class="headerlink" href="#issue-tests-pass-locally-but-not-in-cicd" title="Permanent link">&para;</a></h3>
+<p><strong>Not applicable for this workshop, but good to know:</strong></p>
+<p><strong>Common Causes:</strong>
+- Environment differences
+- Port conflicts in CI
+- Timing issues (app not fully started)</p>
+<p><strong>For Workshop:</strong>
+- We're not using CI/CD
+- Tests run locally only
+- If mentioned, explain this is out of scope</p>
+<hr />
+<h2 id="debugging-techniques-for-proctors">🛠️ Debugging Techniques for Proctors<a class="headerlink" href="#debugging-techniques-for-proctors" title="Permanent link">&para;</a></h2>
+<h3 id="the-5-minute-debug-protocol">The 5-Minute Debug Protocol<a class="headerlink" href="#the-5-minute-debug-protocol" title="Permanent link">&para;</a></h3>
+<p>When an attendee is stuck, use this systematic approach:</p>
+<ol>
+<li><strong>Understand the Problem (1 min)</strong></li>
+<li>Ask them to describe what they're trying to do</li>
+<li>What error are they seeing?</li>
+<li>
+<p>What was the last thing that worked?</p>
+</li>
+<li>
+<p><strong>Check the Basics (1 min)</strong></p>
+</li>
+<li>Is the app running?</li>
+<li>Right directory? (<code>pwd</code>)</li>
+<li>File saved?</li>
+<li>
+<p>Right port?</p>
+</li>
+<li>
+<p><strong>Read the Error (1 min)</strong></p>
+</li>
+<li>Look at actual error message together</li>
+<li>Identify the specific line/file</li>
+<li>
+<p>Google the error if needed</p>
+</li>
+<li>
+<p><strong>Test Hypothesis (1 min)</strong></p>
+</li>
+<li>Make one small change</li>
+<li>Test immediately</li>
+<li>
+<p>Observe result</p>
+</li>
+<li>
+<p><strong>Iterate or Escalate (1 min)</strong></p>
+</li>
+<li>If improving: continue debugging</li>
+<li>If stuck: escalate to lead instructor</li>
+<li>If solved: document the issue</li>
+</ol>
+<h3 id="using-copilot-for-debugging">Using Copilot for Debugging<a class="headerlink" href="#using-copilot-for-debugging" title="Permanent link">&para;</a></h3>
+<p><strong>Teach attendees to ask Copilot:</strong>
+<div class="highlight"><pre><span></span><code>&quot;I&#39;m getting this error: [paste error message]
+Here&#39;s my code: [paste code]
+What&#39;s wrong and how do I fix it?&quot;
+</code></pre></div></p>
+<p>This teaches them a valuable skill while solving their problem.</p>
+<hr />
+<h2 id="tracking-issues-during-workshop">📊 Tracking Issues During Workshop<a class="headerlink" href="#tracking-issues-during-workshop" title="Permanent link">&para;</a></h2>
+<h3 id="issue-log-template">Issue Log Template<a class="headerlink" href="#issue-log-template" title="Permanent link">&para;</a></h3>
+<p>Keep a running log during workshop:</p>
+<div class="highlight"><pre><span></span><code>Time | Issue | Attendees Affected | Solution | Time to Resolve
+-----|-------|-------------------|----------|----------------
+9:15 | Port 8000 in use | 3 | Kill process | 2 min
+9:30 | Copilot not working | 1 | Re-auth | 5 min
+9:45 | Tests failing | 5 | App not running | 1 min
+</code></pre></div>
+<p><strong>Use This To:</strong>
+- Identify patterns (same issue multiple times = needs announcement)
+- Time management (if resolving issues taking too long)
+- Improve materials (frequent issues need better docs)</p>
+<hr />
+<h2 id="proactive-issue-prevention">🎯 Proactive Issue Prevention<a class="headerlink" href="#proactive-issue-prevention" title="Permanent link">&para;</a></h2>
+<h3 id="pre-workshop-checks-1-hour-before">Pre-Workshop Checks (1 hour before)<a class="headerlink" href="#pre-workshop-checks-1-hour-before" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test Codespaces creation</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Verify GitHub.com is accessible</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Test Copilot in a fresh Codespace</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Run through first 3 workshop steps</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Verify all links in documentation work</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Check venue WiFi quality</li>
+</ul>
+<h3 id="opening-announcements">Opening Announcements<a class="headerlink" href="#opening-announcements" title="Permanent link">&para;</a></h3>
+<p><strong>Before starting:</strong>
+<div class="highlight"><pre><span></span><code>&quot;A few technical tips before we begin:
+
+1. If you see errors, READ the error message - it usually tells you what&#39;s wrong
+2. If tests fail, make sure your app is running first
+3. If Copilot isn&#39;t working, check the status bar icon
+4. Save your files before asking Copilot for help
+5. Don&#39;t hesitate to ask for help - that&#39;s what we&#39;re here for!
+
+Any questions before we start?&quot;
+</code></pre></div></p>
+<h3 id="mid-workshop-checkpoints">Mid-Workshop Checkpoints<a class="headerlink" href="#mid-workshop-checkpoints" title="Permanent link">&para;</a></h3>
+<p><strong>After major sections:</strong>
+<div class="highlight"><pre><span></span><code>&quot;Let&#39;s do a quick checkpoint. Raise your hand if:
+- Your Python app is running and tested ✓
+- You&#39;ve created C# scaffolding ✓
+- You have at least one C# endpoint working ✓
+
+If you don&#39;t have your hand up, let&#39;s pause and get everyone caught up.&quot;
+</code></pre></div></p>
+<hr />
+<h2 id="quick-command-reference">🚀 Quick Command Reference<a class="headerlink" href="#quick-command-reference" title="Permanent link">&para;</a></h2>
+<h3 id="for-proctors-to-help-attendees-quickly">For Proctors to Help Attendees Quickly<a class="headerlink" href="#for-proctors-to-help-attendees-quickly" title="Permanent link">&para;</a></h3>
+<p><strong>Check Running Processes:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># See what&#39;s running on port 8000</span>
+lsof<span class="w"> </span>-i<span class="w"> </span>:8000<span class="w">          </span><span class="c1"># Mac/Linux</span>
+netstat<span class="w"> </span>-ano<span class="w"> </span><span class="p">|</span><span class="w"> </span>findstr<span class="w"> </span>:8000<span class="w">  </span><span class="c1"># Windows</span>
+
+<span class="c1"># See all running processes</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python<span class="w">   </span><span class="c1"># Python processes</span>
+ps<span class="w"> </span>aux<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>dotnet<span class="w">   </span><span class="c1"># .NET processes</span>
+</code></pre></div></p>
+<p><strong>Kill Processes:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># By PID</span>
+<span class="nb">kill</span><span class="w"> </span>-9<span class="w"> </span>&lt;PID&gt;<span class="w">          </span><span class="c1"># Mac/Linux</span>
+Stop-Process<span class="w"> </span>-Id<span class="w"> </span>&lt;PID&gt;<span class="w"> </span>-Force<span class="w">  </span><span class="c1"># Windows PowerShell</span>
+
+<span class="c1"># By name (careful!)</span>
+pkill<span class="w"> </span>python<span class="w">           </span><span class="c1"># Kill all Python</span>
+pkill<span class="w"> </span>dotnet<span class="w">           </span><span class="c1"># Kill all .NET</span>
+</code></pre></div></p>
+<p><strong>Check Installations:</strong>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>--version<span class="w">      </span><span class="c1"># Should be 3.12.x</span>
+dotnet<span class="w"> </span>--version<span class="w">       </span><span class="c1"># Should be 10.0.x</span>
+git<span class="w"> </span>--version<span class="w">          </span><span class="c1"># Any recent version</span>
+code<span class="w"> </span>--version<span class="w">         </span><span class="c1"># VS Code version</span>
+</code></pre></div></p>
+<p><strong>Test Endpoints:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Test if app is responding</span>
+curl<span class="w"> </span>http://localhost:8000
+curl<span class="w"> </span>http://localhost:8000/countries
+
+<span class="c1"># Formatted output</span>
+curl<span class="w"> </span>http://localhost:8000/countries<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+</code></pre></div></p>
+<p><strong>Git Helpers:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># See what changed</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>diff
+
+<span class="c1"># Undo changes</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD
+
+<span class="c1"># See completed code</span>
+ls<span class="w"> </span>src/csharp-app-complete
+</code></pre></div></p>
+<hr />
+<h2 id="escalation-guide">📞 Escalation Guide<a class="headerlink" href="#escalation-guide" title="Permanent link">&para;</a></h2>
+<h3 id="when-to-escalate-to-lead-instructor">When to Escalate to Lead Instructor<a class="headerlink" href="#when-to-escalate-to-lead-instructor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Issue affects multiple attendees (&gt;3)</li>
+<li>Issue blocks forward progress</li>
+<li>Security/access problem</li>
+<li>Venue/equipment problem</li>
+<li>Attendee has spent &gt;10 minutes on same issue</li>
+</ul>
+<h3 id="when-to-suggest-moving-on">When to Suggest Moving On<a class="headerlink" href="#when-to-suggest-moving-on" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Issue is in "nice to have" territory</li>
+<li>Time is limited</li>
+<li>Alternative approach exists</li>
+<li>Can complete workshop without resolving it</li>
+</ul>
+<p><strong>Phrase it positively:</strong>
+<div class="highlight"><pre><span></span><code>&quot;Let&#39;s move forward and circle back to this later. You can finish
+the workshop and then tackle this specific issue. Would that work?&quot;
+</code></pre></div></p>
+<hr />
+<h2 id="pro-tips">💡 Pro Tips<a class="headerlink" href="#pro-tips" title="Permanent link">&para;</a></h2>
+<h3 id="for-new-proctors">For New Proctors<a class="headerlink" href="#for-new-proctors" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Don't just fix it</strong> - Teach them to debug</li>
+<li><strong>Use Copilot</strong> - Show them how to ask Copilot about errors</li>
+<li><strong>Stay calm</strong> - Technical issues are normal</li>
+<li><strong>Document</strong> - Note new issues for future workshops</li>
+<li><strong>Time-box</strong> - Don't spend more than 5 min on one issue</li>
+</ol>
+<h3 id="for-experienced-proctors">For Experienced Proctors<a class="headerlink" href="#for-experienced-proctors" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Anticipate</strong> - Watch for common issues before they're reported</li>
+<li><strong>Group solve</strong> - If same issue hits 3+ people, do a group explanation</li>
+<li><strong>Empower</strong> - Teach attendees to help each other</li>
+<li><strong>Improve</strong> - Suggest doc improvements for issues you see repeatedly</li>
+<li><strong>Share</strong> - Brief other proctors on patterns you notice</li>
+</ol>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p><strong>Most Common Issues (in order of frequency):</strong></p>
+<ol>
+<li>App not running when tests executed</li>
+<li>Wrong port (not 8000)</li>
+<li>Copilot not authenticated</li>
+<li>Port 8000 already in use</li>
+<li>Dependencies not installed</li>
+</ol>
+<p><strong>Quick Fixes:</strong>
+- 90% of issues solved by: checking app is running, verifying port, reloading window
+- When in doubt: read the error message carefully
+- Use Copilot to explain errors - teaches debugging skill</p>
+<p><strong>Remember:</strong>
+- Technical issues are learning opportunities
+- Stay patient and positive
+- Document new issues
+- Share insights with other proctors</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../common-questions-faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Common Questions FAQ">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Common Questions FAQ
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../progress-tracker-template/" class="md-footer__link md-footer__link--next" aria-label="Next: Progress Tracker Template">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Progress Tracker Template
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - present Microsoft
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.footer", "content.code.copy", "navigation.tabs.sticky", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
