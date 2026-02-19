@@ -39,7 +39,7 @@ Choose the workflow that best fits your setup. If you're working locally in your
     5. Wait for the Codespace to finish provisioning in the browser.
     6. Once the Codespace is ready, you'll see a VS Code experience in the browser. You can continue there or click **Open in VS Code** to connect from your desktop.
     
-        ![Open in VS Code button](./media/open-in-vscode.png)
+![Open in VS Code button](./media/open-in-vscode.png)
 
 !!! success
     To revisit the workshop later, click your profile picture on GitHub and select **Your stars**.
