@@ -192,12 +192,11 @@ dotnet run --urls "http://localhost:8001"
 | Task | Mode | Why |
 |------|------|-----|
 | "What does this code do?" | **Ask** | Just learning, no changes |
-| "Add error handling to this function" | **Edit** | Single, targeted change |
 | "Create the C# scaffolding" | **Agent** | Multi-step task with commands |
 | "What's the plan for migrating?" | **Plan** | Strategy before implementation |
 
 **Answer to Give:**
-"Use Ask for questions, Edit for small changes, Agent for multi-step tasks, and Plan when you need to think through the approach first."
+"Use Ask for questions, Agent for small changes or multi-step tasks, and Plan when you need to think through the approach first."
 
 ---
 

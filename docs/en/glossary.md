@@ -111,9 +111,6 @@ This glossary provides definitions for key terms used throughout the workshop. U
 **Ask Mode**
 : A Copilot mode for getting explanations, asking questions, and learning about code without making changes.
 
-**Edit Mode**
-: A Copilot mode for making targeted code modifications based on natural language instructions.
-
 **Agent Mode**
 : An autonomous Copilot mode that can plan tasks, make edits, run commands, and iterate until goals are achieved.
 
