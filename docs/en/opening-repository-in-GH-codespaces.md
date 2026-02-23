@@ -22,7 +22,7 @@ Choose the workflow that best fits your setup. If you're working locally in your
     1. Restore dependencies for the python project:
     
         ```bash
-        cd src/python-app && pip install -r requirements.txt`
+        cd src/python-app && pip install -r requirements.txt
         ```
     
     1. You're ready to follow the rest of the workshop locally. If you need the tool list, see the **Local environment prerequisites** section on the Resources page.
