@@ -31,3 +31,7 @@ def countries():
 @app.get('/countries/{country}/{city}/{month}')
 def monthly_average(country: str, city: str, month: str):
     return data[country][city][month]
+
+if __name__ == "__main__":
+    import uvicorn 
+    uvicorn.run(app, host = '0.0.0.0', port = 8000)
