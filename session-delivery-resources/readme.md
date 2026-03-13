@@ -14,7 +14,7 @@ Prior to delivering the workshop please:
 | ------------------- | ---------------------------------- | ------------------- |
 | Session Recording | [Recording](https://youtu.be/_o-h5k-Wnn8) | Overview Session Recording |
 | Workshop Recording | [Recording](https://aka.ms/AAz88mp) | Complete Workshop Session Recording |
-| Session Delivery Deck | [Deck](https://aka.ms/AAz20ha ) | Presentation slides for this workshop with presenter notes |
+| Session Delivery Deck | [Deck](https://aka.ms/AAz20ha) | Presentation slides for this workshop with presenter notes |
 | Workshop Tutorial | [Tutorial](https://aka.ms/wrk541instructions)  | Workshop Tutorial |
 
 ## 🚀Get Started
