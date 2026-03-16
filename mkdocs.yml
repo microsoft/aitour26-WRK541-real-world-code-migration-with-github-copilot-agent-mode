@@ -16,7 +16,7 @@ nav:
   - Workshop Navigation: navigating-workshop.md
   - Getting Started:
     - Workshop Introduction: workshop-introduction.md
-    - Opening the Repository in GitHub Codespaces: opening-repository-in-GH-codespaces.md
+    - Open the Repository (Local or Codespaces): opening-repository-in-GH-codespaces.md
     - Understanding the Project: understanding-project.md
   - Strategize with Copilot:
     - Analyze the Project: analyze-project.md
@@ -30,7 +30,16 @@ nav:
   - Bonus Content:
     - Challenge 1: Challenge-1.md
     - Challenge 2: Challenge-2.md
+    - Challenge 3: Challenge-3.md
     - Homework: Homework.md
+  - Reference Materials:
+    - Completed Example Guide: completed-example-guide.md
+    - Glossary: glossary.md
+    - Terminology Guide: terminology-guide.md
+  - For Proctors:
+    - Common Questions FAQ: proctor-resources/common-questions-faq.md
+    - Troubleshooting Playbook: proctor-resources/troubleshooting-playbook.md
+    - Progress Tracker Template: proctor-resources/progress-tracker-template.md
   - Resources: resources.md
 
 plugins:
@@ -43,11 +52,42 @@ plugins:
         - locale: en
           name: English
           default: true
+        - locale: ja
+          name: 日本語
+          nav_translations:
+            Home: ホーム
+            Workshop Navigation: ワークショップのナビゲーション
+            Getting Started: はじめに
+            Workshop Introduction: ワークショップの紹介
+            Open the Repository (Local or Codespaces): リポジトリを開く（ローカルまたは Codespaces）
+            Understanding the Project: プロジェクトの理解
+            Strategize with Copilot: Copilot で戦略を立てる
+            Analyze the Project: プロジェクトの分析
+            Converting to C#: C# への変換
+            Create C# Scaffolding: C# プロジェクト雛形の作成
+            Implementing Endpoints: エンドポイントの実装
+            Validation and Testing: 検証とテスト
+            Validate correctness and add more endpoints: 正確性の検証と追加エンドポイント
+            Add C# Tests: C# テストの追加
+            Summary: まとめ
+            Bonus Content: ボーナスコンテンツ
+            Challenge 1: チャレンジ 1
+            Challenge 2: チャレンジ 2
+            Challenge 3: チャレンジ 3
+            Homework: 宿題
+            Reference Materials: 参考資料
+            Completed Example Guide: 完成例ガイド
+            Glossary: 用語集
+            Terminology Guide: 用語ガイド
+            For Proctors: プロクター向け
+            Common Questions FAQ: よくある質問 (FAQ)
+            Troubleshooting Playbook: トラブルシューティング
+            Progress Tracker Template: 進捗管理テンプレート
+            Resources: リソース
 
 theme:
   name: material
   features:
-    - navigation.instant
     - navigation.footer
     - content.code.copy
     - navigation.tabs.sticky 
