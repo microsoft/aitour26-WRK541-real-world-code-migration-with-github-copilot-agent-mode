@@ -30,6 +30,7 @@ nav:
   - Bonus Content:
     - Challenge 1: Challenge-1.md
     - Challenge 2: Challenge-2.md
+    - Challenge 3: Challenge-3.md
     - Homework: Homework.md
   - Reference Materials:
     - Completed Example Guide: completed-example-guide.md
@@ -72,6 +73,7 @@ plugins:
             Bonus Content: ボーナスコンテンツ
             Challenge 1: チャレンジ 1
             Challenge 2: チャレンジ 2
+            Challenge 3: チャレンジ 3
             Homework: 宿題
             Reference Materials: 参考資料
             Completed Example Guide: 完成例ガイド
