@@ -1,0 +1,1906 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Perform a challenging migration to a completely different language.">
+      
+      
+        <meta name="author" content="Alfredo Deza, Gustavo Cordido">
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode/ja/Challenge-3/">
+      
+      
+        <link rel="prev" href="../Challenge-2/">
+      
+      
+        <link rel="next" href="../Homework/">
+      
+      
+        
+          <link rel="alternate" href="../../Challenge-3/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="ja">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>チャレンジ 3 - Real World Code Migration with GitHub Copilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../" title="Real World Code Migration with GitHub Copilot" class="md-header__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Real World Code Migration with GitHub Copilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              チャレンジ 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="pink"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="言語切り替え">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../Challenge-3/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Real World Code Migration with GitHub Copilot" class="md-nav__button md-logo" aria-label="Real World Code Migration with GitHub Copilot" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Real World Code Migration with GitHub Copilot
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/aitour26-WRK541-real-world-code-migration-with-github-copilot-agent-mode" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Real World Code Migration with GitHub Copilot
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../navigating-workshop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ワークショップのナビゲーション
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    はじめに
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    はじめに
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ワークショップの紹介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opening-repository-in-GH-codespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リポジトリを開く（ローカルまたは Codespaces）
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../understanding-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    プロジェクトの理解
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Copilot で戦略を立てる
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Copilot で戦略を立てる
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analyze-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    プロジェクトの分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C# への変換
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C# への変換
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-csharp-scaffolding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C# プロジェクト雛形の作成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implementing-endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    エンドポイントの実装
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    検証とテスト
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    検証とテスト
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../validate-correctness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    正確性の検証と追加エンドポイント
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../add-csharp-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C# テストの追加
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    まとめ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ボーナスコンテンツ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ボーナスコンテンツ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Challenge-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャレンジ 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Challenge-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャレンジ 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャレンジ 3
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    チャレンジ 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チャレンジ 3: モダンな AI 活用で移行を進める
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このチャレンジの学習目標
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チャレンジのステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このチャレンジで実際に使うファイル
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent / skill を前提にした作業の進め方
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキルを使った具体的な作業例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実務向けの推奨ワークフロー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発展課題
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成果物のイメージ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Homework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    宿題
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    参考資料
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    参考資料
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../completed-example-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    完成例ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用語集
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terminology-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用語ガイド
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    プロクター向け
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    プロクター向け
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/common-questions-faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    よくある質問 (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/troubleshooting-playbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proctor-resources/progress-tracker-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    進捗管理テンプレート
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    リソース
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チャレンジ 3: モダンな AI 活用で移行を進める
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このチャレンジの学習目標
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        チャレンジのステップ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        このチャレンジで実際に使うファイル
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agent-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        agent / skill を前提にした作業の進め方
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキルを使った具体的な作業例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実務向けの推奨ワークフロー
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        発展課題
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成果物のイメージ
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">ボーナスチャレンジ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="3-ai">チャレンジ 3: モダンな AI 活用で移行を進める<a class="headerlink" href="#3-ai" title="Permanent link">&para;</a></h2>
+<p><strong>難易度:</strong> 🔥🔥 上級</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>このチャレンジでは、既存ワークショップの流れをベースにしながら、より実務的で再利用しやすい AI 活用方法へ発展させます。</p>
+</div>
+<p>これまでのワークショップでは、VS Code 上で Ask モード、Plan モード、Agent モードを切り替えながら、その場でプロンプトを入力して作業を進めてきました。この方法は GitHub Copilot の基本的な使い方を学ぶには有効です。</p>
+<p>一方で、実際の開発現場では、毎回長い指示をチャットに入力するよりも、プロジェクト側に AI 活用の前提条件や役割分担をファイルとして持たせるほうが効率的です。</p>
+<p>このチャレンジでは、すでにリポジトリに追加されている instruction / agent / skill を実際に使いながら、ワークショップの進め方をよりモダンな形へアップデートします。</p>
+<ul>
+<li>共通ルールを <code>copilot-instructions.md</code> に集約する</li>
+<li>領域別ルールを <code>*.instructions.md</code> として分離する</li>
+<li>役割ごとの専用エージェントを <code>*.agent.md</code> で定義する</li>
+<li>再利用可能な手順を <code>SKILL.md</code> と補助ファイルでスキル化する</li>
+<li>ターミナル作業を GitHub Copilot CLI や GitHub CLI と組み合わせて効率化する</li>
+</ul>
+<h2 id="_2">このチャレンジの学習目標<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>このチャレンジを完了すると、次のことを実践できるようになります。</p>
+<ul>
+<li>チャット中心の AI 活用から、再利用可能な AI 運用資産中心の進め方へ移行する</li>
+<li><code>copilot-instructions.md</code> と <code>*.instructions.md</code> の役割分担を理解する</li>
+<li>planner / implementer / validator のようなマルチエージェント構成を設計する</li>
+<li>スキルを使って繰り返し作業をテンプレート化する</li>
+<li>CLI とエージェントを組み合わせて、実務に近いワークフローを組み立てる</li>
+</ul>
+<h2 id="_3">チャレンジのステップ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1">ステップ 1: 既存の共通ルールを確認する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>まず、ワークショップ全体で共通になるルールが <code>.github/copilot-instructions.md</code> にどのように整理されているかを確認します。</p>
+<p>例:</p>
+<ul>
+<li>Python 側を仕様の基準として扱う</li>
+<li>C# 側は .NET Minimal APIs を使う</li>
+<li>変更は小さく分け、エンドポイント単位で検証する</li>
+<li>テストやビルドを壊したまま完了扱いにしない</li>
+<li>ドキュメントは日本人の開発者が理解しやすい表現を使う</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+</div>
+<p><code>copilot-instructions.md</code> は、作業を始める前に一度確認しておくと効果的です。ここに書かれているルールが、以降の planner / implementer / validator の共通前提になります。</p>
+<h3 id="2-instructions">ステップ 2: instructions の役割を確認する<a class="headerlink" href="#2-instructions" title="Permanent link">&para;</a></h3>
+<p>次に、対象ごとの補助ルールが <code>.github/instructions/</code> 配下にどのように分かれているかを確認します。</p>
+<p>たとえば、次の 3 つに分けると実務でも扱いやすくなります。</p>
+<ol>
+<li><code>python-analysis.instructions.md</code></li>
+<li>Python API とテストを仕様源として扱う</li>
+<li>既存のレスポンスやステータスコードを先に整理する</li>
+<li><code>csharp-migration.instructions.md</code></li>
+<li>Minimal APIs の実装方針</li>
+<li>DTO、サービス分離、Swagger の方針</li>
+<li><code>testing.instructions.md</code></li>
+<li><code>pytest</code> と <code>dotnet test</code> の使い分け</li>
+<li>互換性差分の報告ルール</li>
+</ol>
+<h3 id="3">ステップ 3: マルチエージェント構成で進める<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>このチャレンジでは、単一の Agent に何でもやらせるのではなく、役割ごとに分かれたエージェントを使い分けます。</p>
+<p>推奨構成:</p>
+<ol>
+<li><code>migration-planner.agent.md</code></li>
+<li>Python API を分析し、実装順序と検証順序を決める</li>
+<li><code>migration-implementer.agent.md</code></li>
+<li>C# 側の実装を小さな単位で進める</li>
+<li><code>migration-validator.agent.md</code></li>
+<li><code>pytest</code>、<code>dotnet build</code>、<code>dotnet test</code> を使って検証する</li>
+<li><code>migration-orchestrator.agent.md</code></li>
+<li>planner / implementer / validator の橋渡しをする</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>planner に編集権限を与えない、validator に原則として編集権限を与えない、という制約をつけるだけでも、作業の見通しが大きく改善します。</p>
+</div>
+<h3 id="4">ステップ 4: スキルを使って繰り返し作業を進める<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>次に、何度も繰り返す作業に対して <code>.github/skills/</code> 配下のスキルを使います。</p>
+<p>このワークショップでは、少なくとも次のスキルが有効です。</p>
+<ul>
+<li><code>analyze-python-api</code></li>
+<li>Python API の仕様抽出</li>
+<li><code>create-csharp-minimal-api</code></li>
+<li>C# プロジェクト雛形の作成</li>
+<li><code>validate-migration-parity</code></li>
+<li>Python / C# の互換性検証</li>
+</ul>
+<p>スキルにしておくことで、単発の長いプロンプトを書く必要が減り、チームでも再利用しやすくなります。</p>
+<h2 id="_4">このチャレンジで実際に使うファイル<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>このチャレンジでは、以下のファイルを前提に作業します。</p>
+<h3 id="_5">共通ルール<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>.github/copilot-instructions.md</code></li>
+</ul>
+<h3 id="instructions">instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>.github/instructions/python-analysis.instructions.md</code></li>
+<li><code>.github/instructions/csharp-migration.instructions.md</code></li>
+<li><code>.github/instructions/testing.instructions.md</code></li>
+</ul>
+<h3 id="agents">agents<a class="headerlink" href="#agents" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>.github/agents/migration-planner.agent.md</code></li>
+<li><code>.github/agents/migration-implementer.agent.md</code></li>
+<li><code>.github/agents/migration-validator.agent.md</code></li>
+<li><code>.github/agents/migration-orchestrator.agent.md</code></li>
+</ul>
+<h3 id="skills">skills<a class="headerlink" href="#skills" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>.github/skills/analyze-python-api/SKILL.md</code></li>
+<li><code>.github/skills/create-csharp-minimal-api/SKILL.md</code></li>
+<li><code>.github/skills/validate-migration-parity/SKILL.md</code></li>
+</ul>
+<h2 id="agent-skill">agent / skill を前提にした作業の進め方<a class="headerlink" href="#agent-skill" title="Permanent link">&para;</a></h2>
+<p>このチャレンジでは、以下の順番で作業するのが効果的です。</p>
+<h3 id="1_1">パターン 1: オーケストレータ中心で進める<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p>最も実務的なのは、<code>migration-orchestrator</code> を起点にして進める方法です。</p>
+<ol>
+<li><code>migration-orchestrator</code> を開く</li>
+<li>「Python API の次の未実装エンドポイントを分析して、実装と検証の順序を決めてください」と依頼する</li>
+<li>orchestrator が planner に分析を委譲する</li>
+<li>返ってきた結果をもとに implementer に最小単位の実装を委譲する</li>
+<li>実装後に validator へ検証を委譲する</li>
+</ol>
+<p>この方法では、利用者は毎回どの役割を選ぶべきかを細かく考えなくて済みます。</p>
+<h3 id="2-agent">パターン 2: 手動で agent を切り替えて進める<a class="headerlink" href="#2-agent" title="Permanent link">&para;</a></h3>
+<p>ワークショップとして役割の違いを学びたい場合は、次の順で手動切り替えする方法が向いています。</p>
+<ol>
+<li><code>migration-planner</code> で分析と計画を作る</li>
+<li><code>migration-implementer</code> で 1 エンドポイント分だけ実装する</li>
+<li><code>migration-validator</code> で <code>pytest</code> と <code>dotnet build</code> を使って検証する</li>
+</ol>
+<p>この方法は、planner / implementer / validator の責務の違いを理解しやすいのが利点です。</p>
+<h2 id="_6">スキルを使った具体的な作業例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1-python-api">1. Python API の仕様を整理する<a class="headerlink" href="#1-python-api" title="Permanent link">&para;</a></h3>
+<p>まず、<code>analyze-python-api</code> スキルを使って Python 側の仕様を整理します。</p>
+<p>依頼例:</p>
+<div class="highlight"><pre><span></span><code>/analyze-python-api src/python-app/webapp/main.py と test_main.py を確認し、
+/countries と /weather の振る舞いを要約してください。
+</code></pre></div>
+<p>期待する出力:</p>
+<ul>
+<li>ルート一覧</li>
+<li>入力パラメータ</li>
+<li>正常系レスポンス</li>
+<li>異常系レスポンス</li>
+<li>テストで保証されている内容</li>
+</ul>
+<h3 id="2-c">2. C# 側の次の実装を進める<a class="headerlink" href="#2-c" title="Permanent link">&para;</a></h3>
+<p>次に、<code>create-csharp-minimal-api</code> スキルまたは <code>migration-implementer</code> を使って、最小単位で実装します。</p>
+<p>依頼例:</p>
+<div class="highlight"><pre><span></span><code>/create-csharp-minimal-api /countries エンドポイントだけを対象に、
+Python 側と同じレスポンスになるよう最小限の C# 実装を進めてください。
+</code></pre></div>
+<p>または:</p>
+<div class="highlight"><pre><span></span><code>migration-implementer を使って /countries だけ実装し、
+変更ファイルと次に実行すべき検証コマンドを示してください。
+</code></pre></div>
+<h3 id="3_1">3. 互換性を検証する<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p>実装後は <code>validate-migration-parity</code> スキルまたは <code>migration-validator</code> を使って、挙動差分を確認します。</p>
+<p>依頼例:</p>
+<div class="highlight"><pre><span></span><code>/validate-migration-parity /countries の実装について、
+Python の期待動作と一致しているか確認するための最小検証手順を示してください。
+</code></pre></div>
+<p>または:</p>
+<div class="highlight"><pre><span></span><code>migration-validator を使って /countries 関連の pytest と C# build を確認し、
+差分があれば原因を説明してください。
+</code></pre></div>
+<h3 id="5-cli">ステップ 5: CLI と組み合わせて検証を高速化する<a class="headerlink" href="#5-cli" title="Permanent link">&para;</a></h3>
+<p>AI との会話は設計と判断に寄せ、端末作業は CLI で小さく回すのが効果的です。</p>
+<p>たとえば、次のようなコマンドを使い分けます。</p>
+<div class="highlight"><pre><span></span><code>rg<span class="w"> </span><span class="s2">&quot;@app\.|def test_&quot;</span><span class="w"> </span>src/python-app/webapp
+<span class="nb">cd</span><span class="w"> </span>src/python-app/webapp<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pytest<span class="w"> </span>test_main.py<span class="w"> </span>-k<span class="w"> </span>countries<span class="w"> </span>-q
+<span class="nb">cd</span><span class="w"> </span>src/csharp-app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>dotnet<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>src/csharp-app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>dotnet<span class="w"> </span>run<span class="w"> </span>--urls<span class="w"> </span><span class="s2">&quot;http://localhost:8000&quot;</span>
+curl<span class="w"> </span>-i<span class="w"> </span>http://localhost:8000/countries
+</code></pre></div>
+<p>環境によって GitHub Copilot CLI が使える場合は、<code>gh copilot</code> を併用してコマンド候補を生成してもよいでしょう。</p>
+<div class="highlight"><pre><span></span><code>gh<span class="w"> </span>copilot<span class="w"> </span>suggest<span class="w"> </span><span class="s2">&quot;src/python-app/webapp/test_main.py の countries 関連テストだけを実行するコマンド&quot;</span>
+gh<span class="w"> </span>copilot<span class="w"> </span>explain<span class="w"> </span><span class="s2">&quot;dotnet run --urls http://localhost:8000&quot;</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>利用環境によっては <code>gh copilot</code> サブコマンドが未導入の場合があります。その場合は先に導入可否を確認してください。</p>
+</div>
+<h2 id="_7">実務向けの推奨ワークフロー<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>このチャレンジでは、次のループで進めると効率的です。</p>
+<h3 id="_8">仕様確認ループ<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>analyze-python-api</code> スキル、または <code>migration-planner</code> で Python 仕様を整理する</li>
+<li><code>rg</code> や <code>pytest -k ...</code> で対象範囲を絞る</li>
+<li>期待動作を明文化する</li>
+</ol>
+<h3 id="_9">実装ループ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>create-csharp-minimal-api</code> スキル、または <code>migration-implementer</code> に 1 エンドポイント分だけ実装させる</li>
+<li><code>dotnet build</code> を実行する</li>
+<li><code>curl</code> で対象エンドポイントだけ確認する</li>
+</ol>
+<h3 id="_10">検証ループ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li><code>validate-migration-parity</code> スキル、または <code>migration-validator</code> で失敗箇所を再現する</li>
+<li>Python 側の期待動作と比較する</li>
+<li>差分の原因を説明する</li>
+<li>必要なら implementer に最小修正を依頼する</li>
+</ol>
+<h2 id="_11">発展課題<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>migration-orchestrator</code> を起点に、1 つのエンドポイント追加を最後まで完走する</li>
+<li>既存のプロンプト中心の手順を、agent / skill 中心の手順に自分で書き換える</li>
+<li><code>validate-migration-parity</code> の結果をもとに、検証手順をさらに小さく分割する</li>
+<li>新しい skill を 1 つ追加し、チームで再利用しやすい形にする</li>
+</ul>
+<h2 id="_12">成果物のイメージ<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>このチャレンジを完了すると、単なるチャット履歴ではなく、チームで共有できる AI 活用資産がリポジトリに残ります。</p>
+<ul>
+<li>共通ルール</li>
+<li>領域別ルール</li>
+<li>役割別エージェント</li>
+<li>再利用可能なスキル</li>
+<li>実行しやすい CLI レシピ</li>
+</ul>
+<p>これにより、このワークショップは「GitHub Copilot のモードを試す教材」から、「実務で再利用できる AI 開発プロセスを設計する教材」へ発展します。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="フッター" >
+        
+          
+          <a href="../Challenge-2/" class="md-footer__link md-footer__link--prev" aria-label="前: チャレンジ 2">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                前
+              </span>
+              <div class="md-ellipsis">
+                チャレンジ 2
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Homework/" class="md-footer__link md-footer__link--next" aria-label="次: 宿題">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                次
+              </span>
+              <div class="md-ellipsis">
+                宿題
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - present Microsoft
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "content.code.copy", "navigation.tabs.sticky", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
