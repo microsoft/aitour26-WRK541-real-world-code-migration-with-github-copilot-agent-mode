@@ -2,9 +2,12 @@
 
 > *このステップ以降は GitHub Copilot の Agent モードを使います。*
 
-プロジェクトとテストの全体像を把握できたら、C# プロジェクト雛形の作成に進みましょう。まず最初に、インストラクション用の特別なファイルを作成します。このファイルは *Copilot Instructions* と呼ばれ、`.github\instructions` フォルダに置きます。空のファイルがあらかじめ用意されているので、以下の指示内容を書き込むだけでOKです。
+プロジェクトとテストの全体像を把握できたら、C# プロジェクト雛形の作成に進みましょう。まず最初に、リポジトリ全体に適用される *Copilot Instructions* ファイルをカスタマイズします。このファイルはリポジトリのルートにある `.github/copilot-instructions.md` です。現在は Python に関する内容で事前設定されているので、これから行う C# 移行に向けた内容に**全体を置き換えます**。
 
-`.github\instructions\instructions.md` ファイルを開き、以下の内容を追記してください:
+!!! note "`.github/copilot-instructions.md` と `.github/instructions/` の違い"
+    `.github/copilot-instructions.md` はリポジトリ全体で使われる単一の Copilot インストラクションファイルで、このリポジトリ内のすべてのチャットで自動的に読み込まれます。一方 `.github/instructions/` フォルダは別の仕組みで、`applyTo` フロントマターで指定されたパスを編集するときだけ有効になる、glob スコープ付きの複数のファイルを置くためのものです。これらのファイルは既に内容が入っており、このステップでは編集する必要はありません。
+
+`.github/copilot-instructions.md` を開き、**ファイルの内容をすべて以下で置き換えてください**:
 
 ```markdown
 # C# .NET 10 WebApi Migration Instructions

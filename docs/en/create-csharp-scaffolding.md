@@ -2,9 +2,12 @@
 
 > *You should use GitHub Copilot in Agent Mode for this step and onwards.*
 
-Now that you have a good understanding of the project and its tests, you can start creating the C# scaffolding. You will start by creating a special file with instructions. This file is called *Copilot Instructions* and it should live in the [.github\instructions] folder. We've pre-created an empty file for you so all that is needed is to fill it out with new instructions.
+Now that you have a good understanding of the project and its tests, you can start creating the C# scaffolding. You will start by customising the repository-wide *Copilot Instructions* file, which lives at `.github/copilot-instructions.md` in the root of the repository. This file has been pre-populated with Python-focused guidance, and you will replace its contents with C#-focused instructions for the migration ahead.
 
-For this step, open the `.github\instructions\instructions.md` file and add the following:
+!!! note "`.github/copilot-instructions.md` vs `.github/instructions/`"
+    `.github/copilot-instructions.md` is the single repository-wide instructions file that Copilot loads for every chat in this repo. The `.github/instructions/` folder is a different mechanism — it holds multiple glob-scoped files (with `applyTo` frontmatter) that only activate when you edit matching paths. Those files are already populated and should not be edited for this step.
+
+For this step, open `.github/copilot-instructions.md` and **replace its entire contents** with the following:
 
 ```markdown
 # C# .NET 10 WebApi Migration Instructions
