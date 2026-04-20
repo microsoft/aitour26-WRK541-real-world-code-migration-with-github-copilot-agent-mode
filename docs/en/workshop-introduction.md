@@ -15,7 +15,7 @@ This workshop will guide you through a realistic migration scenario using GitHub
     **Why did Zava choose C# for this migration?**
     
     - Easier integration with Zava's existing C# backend and internal tooling after the acquisition, reducing integration friction and time-to-market
-    - First-class Azure ecosystem support (Application Insights, Azure AD integration, IaC tooling) for enterprise deployments
+    - First-class Azure ecosystem support (Application Insights, Microsoft Entra ID integration, IaC tooling) for enterprise deployments
     - Strong enterprise tooling (Visual Studio, JetBrains Rider, .NET analyzers) that improves developer productivity, debugging and refactoring at scale
     
     **Why incremental validation matters in production:**
@@ -43,7 +43,7 @@ You will be working with a Python project (representing an acquired service) tha
 
 Zava enforces a set of enterprise standards for services running in production. Below are the key standards and how migrating to C#/.NET helps meet them more effectively than the current Python-based implementation:
 
-- Security and identity: .NET has mature libraries for secure authentication/authorization (Azure AD integration, token validation, strong cryptography libraries) and a robust ecosystem of security scanning and policy enforcement tools.
+- Security and identity: .NET has mature libraries for secure authentication/authorization (Microsoft Entra ID integration, token validation, strong cryptography libraries) and a robust ecosystem of security scanning and policy enforcement tools.
 - Observability and diagnostics: Deep integration with Application Insights, structured logging (ILogger), distributed tracing, and first-class telemetry SDKs make it easier to meet Zava's observability SLAs.
 - Reliability and performance: Strong concurrency primitives, the .NET runtime optimizations, and optional ahead-of-time compilation reduce latency and improve throughput for enterprise load patterns.
 - Maintainability and governance: Static typing, Roslyn analyzers, standardized NuGet package management, and enforced code quality checks help Zava keep a consistent, auditable codebase across teams.
