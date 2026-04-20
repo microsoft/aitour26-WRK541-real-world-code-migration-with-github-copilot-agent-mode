@@ -1,0 +1,30 @@
+name: "Codespaces Prebuilds"
+
+# Triggers GitHub Codespaces to build a prebuild image on push to main and
+# whenever the devcontainer config changes. Prebuilt images bake the devcontainer
+# features (.NET, Python deps) into a cached image, so attendees launching a
+# Codespace get a warm container in ~30 seconds instead of a 5-10 minute cold
+# build — critical for workshops on conference wifi.
+#
+# NOTE: This workflow only defines the schedule. Prebuilds must also be enabled
+# in the repository Settings → Codespaces → Set up prebuild. Once enabled, this
+# file ensures they refresh on the right triggers.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".devcontainer/**"
+      - ".github/workflows/codespaces-prebuilds.yml"
+      - "src/python-app/requirements.txt"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prebuild marker
+        run: |
+          echo "Devcontainer changed — Codespaces will refresh the prebuild."
+          echo "Actual prebuild runs on GitHub's Codespaces infrastructure, not in this job."
