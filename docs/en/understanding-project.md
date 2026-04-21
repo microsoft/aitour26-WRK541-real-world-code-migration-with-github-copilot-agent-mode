@@ -10,7 +10,7 @@ Familiarize yourself with the project and its structure. The main file is `main.
 
 > Try using GitHub Copilot in Ask Mode for this step.
 
-First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on Mac. You will notice there is a button at the bottom of the chat that reads **Signed out**. Click on it.
+First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on macOS. You will notice there is a button at the bottom of the chat that reads **Signed out**. Click on it.
 
 Here you will be prompted to sign in to use AI features. 
 
