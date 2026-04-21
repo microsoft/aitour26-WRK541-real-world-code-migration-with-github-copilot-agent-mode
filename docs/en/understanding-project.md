@@ -16,7 +16,7 @@ Here you will be prompted to sign in to use AI features.
 
 ![An image showcasing the sign-in button for GitHub Copilot](./media/sign-into-gh-copilot.png)
 
-Select sign in with GitHub, and authorize VS Code in the pop-up that follows.
+Select **Sign in with GitHub**, and authorize VS Code in the pop-up that follows.
 
 Lastly, ensure you are in **Ask** Mode before proceeding:
 
