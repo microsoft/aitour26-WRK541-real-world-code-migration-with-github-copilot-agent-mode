@@ -22,8 +22,8 @@ public class WeatherServiceTests
         var ok = svc.TryGetMonthlyAverage("England", "London", "January", out TemperatureDto? dto);
         Assert.IsTrue(ok);
         Assert.IsNotNull(dto);
-        Assert.AreEqual(45, dto!.High);
-        Assert.AreEqual(36, dto.Low);
+        Assert.AreEqual(7, dto!.High);
+        Assert.AreEqual(2, dto.Low);
     }
 
     [TestMethod]

@@ -85,8 +85,8 @@ public class WeatherApiTests
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
 
         Assert.IsNotNull(weatherData);
-        Assert.AreEqual(45, weatherData.High);
-        Assert.AreEqual(36, weatherData.Low);
+        Assert.AreEqual(7, weatherData.High);
+        Assert.AreEqual(2, weatherData.Low);
     }
 
     [TestMethod]

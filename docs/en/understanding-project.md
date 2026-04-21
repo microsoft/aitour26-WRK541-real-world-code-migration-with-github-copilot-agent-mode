@@ -10,9 +10,17 @@ Familiarize yourself with the project and its structure. The main file is `main.
 
 > Try using GitHub Copilot in Ask Mode for this step.
 
-First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on Mac, and ensure you are in **Ask** Mode:
+First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on macOS. You will notice there is a button at the bottom of the chat that reads **Signed out**. Click on it.
 
-![An image showcasing the three different modes within the GitHub Copilot Chat window](./media/chat-mode-dropdown-ask.png)
+Here you will be prompted to sign in to use AI features. 
+
+![An image showcasing the sign-in button for GitHub Copilot](./media/sign-into-gh-copilot.png)
+
+Select **Sign in with GitHub**, and authorize VS Code in the pop-up that follows.
+
+Lastly, ensure you are in **Ask** Mode before proceeding:
+
+![An image showcasing the three different modes within the GitHub Copilot Chat window](./media/agent-dropdown.png)
 
 !!! Note
     GitHub Copilot is based on LLMs and therefore it has a non-deterministic behavior; you might get different responses to the same input prompt. The suggested prompts in this repo have been tested with model **GPT-5-mini**, so you might want to choose that model from the dropdown menu. However, you are also welcome to explore different models.
