@@ -10,7 +10,15 @@ Familiarize yourself with the project and its structure. The main file is `main.
 
 > Try using GitHub Copilot in Ask Mode for this step.
 
-First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on Mac, and ensure you are in **Ask** Mode:
+First, open GitHub Copilot by pressing `Ctrl + Alt + I` if you are on Windows, or `Command + Shift + I` if you are on Mac. You will notice there is a button at the bottom of the chat that reads **Signed out**. Click on it.
+
+Here you will be prompted to sign in to use AI features. 
+
+![An image showcasing the sign-in button for GitHub Copilot](./media/sign-into-gh-copilot.png)
+
+Select sign in with GitHub, and authorize VS Code in the pop-up that follows.
+
+Lastly, ensure you are in **Ask** Mode before proceeding:
 
 ![An image showcasing the three different modes within the GitHub Copilot Chat window](./media/agent-dropdown.png)
 
