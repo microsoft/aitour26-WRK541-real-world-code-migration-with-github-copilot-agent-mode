@@ -3,25 +3,15 @@
 # [Choice] Python version (use -bullseye variants on local arm64/Apple Silicon): 3, 3.10, 3.9, 3.8, 3.7, 3.6, 3-bullseye, 3.10-bullseye, 3.9-bullseye, 3.8-bullseye, 3.7-bullseye, 3.6-bullseye, 3-buster, 3.10-buster, 3.9-buster, 3.8-buster, 3.7-buster, 3.6-buster
 ARG VARIANT="3.12-bullseye"
 FROM mcr.microsoft.com/vscode/devcontainers/python:1-${VARIANT}
-# Set environment variables
+
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install system dependencies
-# The base image includes a Yarn APT source with an untrusted/expired GPG key; removing it prevents `apt-get update` from failing.
-RUN rm -f /etc/apt/sources.list.d/yarn.list \
-    && apt-get update && apt-get install -y --no-install-recommends \
-    curl \
-    build-essential \
-    wget \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# The base image includes a Yarn APT source with an untrusted/expired GPG key;
+# removing it prevents `apt-get update` from failing. .NET is now installed via
+# devcontainer features (see devcontainer.json) which are cached by Codespaces
+# across rebuilds — so no wget / dotnet-install.sh needed at image-build time.
+RUN rm -f /etc/apt/sources.list.d/yarn.list
 
-# Install .NET 10 SDK
-RUN wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh \
-    && chmod +x dotnet-install.sh \
-    && ./dotnet-install.sh --channel 10.0 --install-dir /usr/share/dotnet \
-    && rm dotnet-install.sh \
-    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet 
-    
 # Define the path to the virtualenv to work with
 ARG VENV_PATH="/home/vscode/venv"
 

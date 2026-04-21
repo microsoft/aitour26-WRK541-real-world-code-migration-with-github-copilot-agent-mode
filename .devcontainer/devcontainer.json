@@ -2,49 +2,47 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
 	"name": "Python 3",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
 		"args": {
-		  "VARIANT": "3.12-bullseye"
+			"VARIANT": "3.12-bullseye"
 		}
-	  },
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "",
-
-	// Configure tool-specific properties.
+	},
+	// .NET is installed via devcontainer feature rather than wget + shell install
+	// in the Dockerfile. Features are cached by the Codespaces infra across
+	// rebuilds and are baked into prebuilt images — massive cold-start win
+	// for conference wifi.
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:2": {
+			"version": "10.0"
+		}
+	},
+	// Pre-restore NuGet packages (Swashbuckle etc.) during container creation
+	// so attendees' first `dotnet run` doesn't wait on a cold restore.
+	"onCreateCommand": "cd /workspaces/${localWorkspaceFolderBasename}/src/csharp-app-complete && dotnet restore",
 	"customizations": {
 		"codespaces": {
 			"openFiles": [
-			  "src/python-app/webapp/main.py",
-			  "README.md"
+				"src/python-app/webapp/main.py",
+				"README.md"
 			]
 		},
 		"vscode": {
 			"settings": {
-			  "python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
-			  "python.terminal.activateEnvInCurrentTerminal": true,
-			  "workbench.editorAssociations": {
-			    "*.md": "vscode.markdown.preview.editor"
-			  }
+				"python.defaultInterpreterPath": "/home/vscode/venv/bin/python",
+				"python.terminal.activateEnvInCurrentTerminal": true,
+				"workbench.editorAssociations": {
+					"*.md": "vscode.markdown.preview.editor"
+				}
 			},
 			"extensions": [
-			  "ms-python.python",
-			  "ms-python.vscode-pylance",
-			  "ms-dotnettools.csharp",
-			  "ms-dotnettools.csdevkit",
-			  "GitHub.copilot"
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-dotnettools.csharp",
+				"ms-dotnettools.csdevkit",
+				"GitHub.copilot"
 			]
 		}
 	}
-
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
 }
